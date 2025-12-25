@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "id": "1a2b",
+      "name": "przem",
+      "email": "przemyslaw@example.com",
+      "password": "admin123"
+    },
+    {
+      "id": "276e",
+      "name": "Przemek",
+      "email": "pw@wp.pl",
+      "password": "19Wend!19"
+    }
+  ]
+}
