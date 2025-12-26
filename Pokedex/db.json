@@ -11,6 +11,70 @@
       "name": "Przemek",
       "email": "pw@wp.pl",
       "password": "19Wend!19"
+    },
+    {
+      "id": "fbd6",
+      "name": "Teresa",
+      "email": "teresa@wp.pl",
+      "password": "Teresa123!"
+    }
+  ],
+  "favourites": [
+    {
+      "id": "281b",
+      "pokemonId": 9,
+      "name": "blastoise",
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png",
+      "height": 16,
+      "weight": 855,
+      "baseExperience": 239
+    },
+    {
+      "id": "e013",
+      "pokemonId": 1,
+      "name": "bulbasaur",
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+      "height": 7,
+      "weight": 69,
+      "baseExperience": 64
+    },
+    {
+      "id": "c112",
+      "pokemonId": 2,
+      "name": "ivysaur",
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png",
+      "height": 10,
+      "weight": 130,
+      "baseExperience": 192
+    }
+  ],
+  "pokemons": [
+    {
+      "id": "d897",
+      "pokemonId": 9,
+      "name": "blastoise",
+      "weight": 855,
+      "baseExperience": 269,
+      "wins": 3,
+      "loses": 0
+    },
+    {
+      "id": "9ed6",
+      "pokemonId": 2,
+      "name": "ivysaur",
+      "weight": 130,
+      "baseExperience": 192,
+      "wins": 5,
+      "loses": 2
+    },
+    {
+      "id": "f716",
+      "pokemonId": 1,
+      "name": "bulbasaur",
+      "weight": 69,
+      "baseExperience": 64,
+      "wins": 0,
+      "loses": 6
     }
   ]
 }

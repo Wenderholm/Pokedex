@@ -29,6 +29,8 @@ const PokemonCard = ({ pokemon }) => {
       <p>Height: {pokemon.height}</p>
       <p>Weight: {pokemon.weight}</p>
       <p>Base Exp: {pokemon.baseExperience}</p>
+      <p>Wins: {pokemon.wins}</p>
+      <p>Loses: {pokemon.loses}</p>
     </div>
   );
 };

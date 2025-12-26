@@ -1,55 +1,15 @@
-import { useEffect, useState } from "react";
-import { pokeApi } from "../../services/pokeApi";
+import { useState } from "react";
 import PokemonCard from "../PokemonCard";
 import Pagination from "../Pagination";
+import { Grid } from "./Home.styled";
+import { usePokemons } from "../../context/PokemonsContext";
 
 const POKEMONS_PER_PAGE = 15;
-const TOTAL_POKEMONS = 150;
 
 const Home = () => {
-  const [pokemons, setPokemons] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
+  const { pokemons, loading, error } = usePokemons();
   const [currentPage, setCurrentPage] = useState(1);
   const [search, setSearch] = useState("");
-
-  useEffect(() => {
-    const fetchPokemons = async () => {
-      try {
-        // pobieranie listy pokemonów z limitem 150 jako parametr
-        const res = await pokeApi.get("/pokemon", {
-          params: { limit: 150 },
-        });
-        // console.log("res", res.data.results); -> w res.data.results mamy zapisane
-        // wszystkie pokiemony z ich name i url do szczegółów
-        // pobieranie szczegółowych danych dla każdego pokemona
-        const detailsPromises = res.data.results.map((pokemon) =>
-          pokeApi.get(pokemon.url)
-        );
-        // czekamy na wszystkie odpowiedzi 150 requestów a nastepnie
-        // zwracamy je w tablicy detailsResponses
-        const detailsResponses = await Promise.all(detailsPromises);
-
-        const detailedPokemons = detailsResponses.map((res) => ({
-          id: res.data.id,
-          name: res.data.name,
-          image: res.data.sprites.front_default,
-          weight: res.data.weight,
-          height: res.data.height,
-          baseExperience: res.data.base_experience,
-        }));
-
-        setPokemons(detailedPokemons);
-      } catch (error) {
-        setError("Błąd pobierania pokemonów", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchPokemons();
-  }, []);
 
   // 🔍 filtrowanie
   const filteredPokemons = pokemons.filter((p) =>
@@ -80,19 +40,11 @@ const Home = () => {
         }}
       />
 
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
-          gap: "16px",
-          marginTop: "20px",
-        }}
-      >
+      <Grid>
         {currentPokemons.map((pokemon) => (
           <PokemonCard key={pokemon.id} pokemon={pokemon} />
         ))}
-      </div>
-
+      </Grid>
       <Pagination
         currentPage={currentPage}
         totalPages={totalPages}
