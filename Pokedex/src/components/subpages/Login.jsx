@@ -8,19 +8,21 @@ const Login = () => {
   const { enqueueSnackbar } = useSnackbar();
   const navigate = useNavigate();
 
+  // elementy i funkcje z react-hook-form
   const { register, handleSubmit } = useForm();
 
   const onSubmit = async (data) => {
+    // wysylanie zapytania do serwera w celu weryfikacji danych logowania
     const res = await fetch(
       `http://localhost:3001/users?email=${data.email}&password=${data.password}`
     );
     const users = await res.json();
-
+    // jezeli nie ma uzytkownika o podanych danych logowania
     if (users.length === 0) {
       enqueueSnackbar("Invalid credentials", { variant: "error" });
       return;
     }
-
+    // jezeli znaleziono uzytkownika o podanych danych logowania to logujemy go
     login(users[0]);
     enqueueSnackbar("Logged in!", { variant: "success" });
     navigate("/");

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { Link as RouterLink } from "react-router-dom"; // import Link z react-router-dom
 import LogoutButton from "./shared/LogoutButton";
-import { useAuth } from "../context/AuthContext";
 
 export const NavStyle = styled.nav`
   display: flex;
