@@ -1,5 +1,5 @@
 import { useFavourites } from "../../context/FavouritesContext";
-import PokemonCard from "../../components/PokemonCard";
+import PokemonCard from "../shared/PokemonCard";
 import { Grid } from "./Home.styled";
 
 const Favourites = () => {
@@ -24,7 +24,10 @@ const Favourites = () => {
               image: fav.image,
               height: fav.height,
               weight: fav.weight,
+              ability: fav.ability,
               baseExperience: fav.baseExperience,
+              wins: fav.wins,
+              loses: fav.loses,
             }}
           />
         ))}

@@ -1,23 +1,30 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:3001/pokemons";
+const api = axios.create({
+  baseURL: "http://localhost:3001",
+});
 
 // 🔹 wszystkie pokemony z JSON-server (po walkach)
 export const getAllBattlePokemons = () => {
-  return axios.get(BASE_URL);
+  return api.get("/pokemons");
 };
 
-// 🔹 sprawdzenie czy pokemon istnieje (po pokemonId)
-export const getPokemonByPokemonId = (pokemonId) => {
-  return axios.get(`${BASE_URL}?pokemonId=${pokemonId}`);
+// 🔹 sprawdzenie czy pokemon istnieje (po pokemonId z PokeAPI)
+export const findPokemonByPokeApiId = (pokemonId) => {
+  return api.get(`/pokemons?pokemonId=${pokemonId}`);
 };
 
 // 🔹 create (pierwsza walka)
 export const createPokemon = (pokemon) => {
-  return axios.post(BASE_URL, pokemon);
+  return api.post("/pokemons", pokemon);
 };
 
 // 🔹 update (kolejne walki)
-export const updatePokemon = (id, pokemon) => {
-  return axios.put(`${BASE_URL}/${id}`, pokemon);
+export const updatePokemon = (id, data) => {
+  return api.patch(`/pokemons/${id}`, data);
+};
+
+// 🔹 get pokemon by record ID (do edytowania)
+export const getBattlePokemonById = (id) => {
+  return api.get(`/pokemons/${id}`);
 };

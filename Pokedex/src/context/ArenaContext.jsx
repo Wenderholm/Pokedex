@@ -16,11 +16,31 @@ export const ArenaProvider = ({ children }) => {
     setArena((prev) => prev.filter((p) => p.id !== id));
   };
 
+  const resetArena = () => {
+    setArena([]);
+  };
+
+  const updateArenaPokemons = (updatedPokemons) => {
+    setArena((prevArena) =>
+      prevArena.map((arenaPokemon) => {
+        const updated = updatedPokemons.find((p) => p.id === arenaPokemon.id);
+        return updated || arenaPokemon;
+      })
+    );
+  };
+
   const isInArena = (id) => arena.some((p) => p.id === id);
 
   return (
     <ArenaContext.Provider
-      value={{ arena, addToArena, removeFromArena, isInArena }}
+      value={{
+        arena,
+        addToArena,
+        removeFromArena,
+        resetArena,
+        updateArenaPokemons,
+        isInArena,
+      }}
     >
       {children}
     </ArenaContext.Provider>

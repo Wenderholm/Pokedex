@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 // towarzyszy temu plikowi AuthProvider w main.jsx
 // tworzymy globalny kontekst autoryzacji
 // - przechowuje informacje o zalogowanym użytkowniku
@@ -8,6 +9,7 @@ const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
@@ -24,6 +26,7 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     setUser(null);
     localStorage.removeItem("user");
+    navigate("/");
   };
 
   return (

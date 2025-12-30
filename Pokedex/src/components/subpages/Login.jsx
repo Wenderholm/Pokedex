@@ -1,39 +1,72 @@
 import { useForm } from "react-hook-form";
 import { useSnackbar } from "notistack";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import {
+  FormContainer,
+  FormTitle,
+  StyledForm,
+  FormField,
+  StyledInput,
+  SubmitButton,
+  FormLink,
+} from "../forms/Form.styled";
 
 const Login = () => {
   const { login } = useAuth();
   const { enqueueSnackbar } = useSnackbar();
   const navigate = useNavigate();
 
-  // elementy i funkcje z react-hook-form
   const { register, handleSubmit } = useForm();
 
   const onSubmit = async (data) => {
-    // wysylanie zapytania do serwera w celu weryfikacji danych logowania
-    const res = await fetch(
-      `http://localhost:3001/users?email=${data.email}&password=${data.password}`
-    );
-    const users = await res.json();
-    // jezeli nie ma uzytkownika o podanych danych logowania
-    if (users.length === 0) {
-      enqueueSnackbar("Invalid credentials", { variant: "error" });
-      return;
+    try {
+      const res = await fetch(
+        `http://localhost:3001/users?email=${data.email}&password=${data.password}`
+      );
+      const users = await res.json();
+
+      if (users.length === 0) {
+        enqueueSnackbar("Nieprawidłowe dane logowania", { variant: "error" });
+        return;
+      }
+
+      login(users[0]);
+      enqueueSnackbar("Zalogowano pomyślnie!", { variant: "success" });
+      navigate("/");
+    } catch {
+      enqueueSnackbar("Błąd podczas logowania", { variant: "error" });
     }
-    // jezeli znaleziono uzytkownika o podanych danych logowania to logujemy go
-    login(users[0]);
-    enqueueSnackbar("Logged in!", { variant: "success" });
-    navigate("/");
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <input placeholder="Email" {...register("email")} />
-      <input type="password" placeholder="Password" {...register("password")} />
-      <button type="submit">Login</button>
-    </form>
+    <FormContainer>
+      <FormTitle>Logowanie do Pokedex</FormTitle>
+
+      <StyledForm onSubmit={handleSubmit(onSubmit)}>
+        <FormField>
+          <StyledInput
+            type="email"
+            placeholder="Email"
+            {...register("email", { required: true })}
+          />
+        </FormField>
+
+        <FormField>
+          <StyledInput
+            type="password"
+            placeholder="Hasło"
+            {...register("password", { required: true })}
+          />
+        </FormField>
+
+        <SubmitButton type="submit">Zaloguj się</SubmitButton>
+      </StyledForm>
+
+      <FormLink>
+        Nie masz konta? <Link to="/register">Zarejestruj się</Link>
+      </FormLink>
+    </FormContainer>
   );
 };
 

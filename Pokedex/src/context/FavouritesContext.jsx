@@ -39,7 +39,10 @@ export const FavouritesProvider = ({ children }) => {
         image: pokemon.image,
         height: pokemon.height,
         weight: pokemon.weight,
+        ability: pokemon.ability,
         baseExperience: pokemon.baseExperience,
+        wins: pokemon.wins || 0,
+        loses: pokemon.loses || 0,
       });
 
       setFavourites((prev) => [...prev, res.data]);

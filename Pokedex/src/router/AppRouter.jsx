@@ -9,6 +9,8 @@ import Favourites from "../components/subpages/Favourites";
 import Arena from "../components/subpages/Arena";
 import Ranking from "../components/subpages/Ranking";
 import Edit from "../components/subpages/Edit";
+import EditPokemon from "../components/subpages/EditPokemon";
+import CreatePokemon from "../components/subpages/CreatePokemon";
 
 const AppRouter = () => {
   const { user } = useAuth();
@@ -39,6 +41,14 @@ const AppRouter = () => {
       <Route
         path="/edit"
         element={user ? <Edit /> : <Navigate to="/login" />}
+      />
+      <Route
+        path="/edit/create"
+        element={user ? <CreatePokemon /> : <Navigate to="/login" />}
+      />
+      <Route
+        path="/edit/:id"
+        element={user ? <EditPokemon /> : <Navigate to="/login" />}
       />
     </Routes>
   );
