@@ -1,17 +1,17 @@
 import { useAuth } from "../../context/AuthContext";
+import { Button } from "./Button.styled";
 
 const LogoutButton = () => {
   const { logout } = useAuth();
 
   return (
-    <button
-      style={{ marginLeft: "10px", padding: "5px 10px", borderRadius: "5px" }}
+    <Button
       onClick={() => {
         logout();
       }}
     >
       Logout
-    </button>
+    </Button>
   );
 };
 
