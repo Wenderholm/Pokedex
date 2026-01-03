@@ -63,8 +63,8 @@
       "name": "ivysaur",
       "weight": 130,
       "ability": "overgrow",
-      "baseExperience": 222,
-      "wins": 8,
+      "baseExperience": 232,
+      "wins": 9,
       "loses": 3,
       "height": "120"
     },
@@ -121,7 +121,7 @@
       "height": 5,
       "baseExperience": 63,
       "wins": 0,
-      "loses": 4
+      "loses": 5
     },
     {
       "id": "6be9",

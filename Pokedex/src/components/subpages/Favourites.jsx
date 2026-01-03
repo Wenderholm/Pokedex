@@ -15,21 +15,21 @@ const Favourites = () => {
     <div>
       <h1>Ulubione Pokémony</h1>
       <Grid>
-        {favourites.map((fav) => (
-          <PokemonCard
-            key={fav.id}
-            pokemon={{
-              id: fav.pokemonId,
-              name: fav.name,
-              image: fav.image,
-              height: fav.height,
-              weight: fav.weight,
-              ability: fav.ability,
-              baseExperience: fav.baseExperience,
-              wins: fav.wins,
-              loses: fav.loses,
-            }}
-          />
+        {favourites.map((favPokemon) => (
+          // mozemy wstaiwic zamiast pokemon={favPokemon}
+          // pokemon={{id: favPokemon.id, name: favPokemon.name, image: favPokemon.image itd}}
+          <PokemonCard key={favPokemon.id} pokemon={favPokemon} />
+          //  <PokemonCard key={favPokemon.id} pokemon={{
+          //    id: favPokemon.id,
+          //    name: favPokemon.name,
+          //    image: favPokemon.image,
+          //    height: favPokemon.height,
+          //    weight: favPokemon.weight,
+          //    ability: favPokemon.ability,
+          //    baseExperience: favPokemon.baseExperience,
+          //    wins: favPokemon.wins,
+          //    loses: favPokemon.loses,
+          //  }} />
         ))}
       </Grid>
     </div>
