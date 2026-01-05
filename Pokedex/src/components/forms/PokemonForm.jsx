@@ -1,4 +1,12 @@
 import { useForm } from "react-hook-form";
+import {
+  Form,
+  FormField,
+  Label,
+  Input,
+  NumberInput,
+  SubmitButton,
+} from "./PokemonForm.styled";
 
 const PokemonForm = ({ defaultValues, onSubmit, isEdit }) => {
   const { register, handleSubmit } = useForm({
@@ -6,137 +14,43 @@ const PokemonForm = ({ defaultValues, onSubmit, isEdit }) => {
   });
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      style={{ display: "flex", flexDirection: "column", gap: "20px" }}
-    >
+    <Form onSubmit={handleSubmit(onSubmit)}>
       {!isEdit && (
-        <div>
-          <label
-            style={{
-              display: "block",
-              marginBottom: "5px",
-              fontWeight: "bold",
-            }}
-          >
-            Nazwa pokemona:
-          </label>
-          <input
+        <FormField>
+          <Label>Nazwa pokemona:</Label>
+          <Input
             {...register("name", { required: true })}
             placeholder="Nazwa"
-            style={{
-              width: "100%",
-              padding: "10px",
-              borderRadius: "5px",
-              border: "1px solid #ccc",
-              fontSize: "16px",
-            }}
           />
-        </div>
+        </FormField>
       )}
 
-      <div>
-        <label
-          style={{ display: "block", marginBottom: "5px", fontWeight: "bold" }}
-        >
-          {isEdit ? "Nowa waga (kg):" : "Waga (kg):"}
-        </label>
-        <input
-          type="number"
-          {...register("weight")}
-          placeholder="Waga"
-          style={{
-            width: "100%",
-            padding: "10px",
-            borderRadius: "5px",
-            border: "1px solid #ccc",
-            fontSize: "16px",
-          }}
-        />
-      </div>
+      <FormField>
+        <Label>{isEdit ? "Nowa waga (kg):" : "Waga (kg):"}</Label>
+        <NumberInput {...register("weight")} placeholder="Waga" />
+      </FormField>
 
-      <div>
-        <label
-          style={{ display: "block", marginBottom: "5px", fontWeight: "bold" }}
-        >
-          {isEdit ? "Nowy wzrost (dm):" : "Wzrost (dm):"}
-        </label>
-        <input
-          type="number"
-          {...register("height")}
-          placeholder="Wzrost"
-          style={{
-            width: "100%",
-            padding: "10px",
-            borderRadius: "5px",
-            border: "1px solid #ccc",
-            fontSize: "16px",
-          }}
-        />
-      </div>
+      <FormField>
+        <Label>{isEdit ? "Nowy wzrost (dm):" : "Wzrost (dm):"}</Label>
+        <NumberInput {...register("height")} placeholder="Wzrost" />
+      </FormField>
 
-      <div>
-        <label
-          style={{ display: "block", marginBottom: "5px", fontWeight: "bold" }}
-        >
-          {isEdit ? "Nowe doświadczenie:" : "Doświadczenie:"}
-        </label>
-        <input
-          type="number"
-          {...register("baseExperience")}
-          placeholder="EXP"
-          style={{
-            width: "100%",
-            padding: "10px",
-            borderRadius: "5px",
-            border: "1px solid #ccc",
-            fontSize: "16px",
-          }}
-        />
-      </div>
+      <FormField>
+        <Label>{isEdit ? "Nowe doświadczenie:" : "Doświadczenie:"}</Label>
+        <NumberInput {...register("baseExperience")} placeholder="EXP" />
+      </FormField>
 
       {!isEdit && (
-        <div>
-          <label
-            style={{
-              display: "block",
-              marginBottom: "5px",
-              fontWeight: "bold",
-            }}
-          >
-            ID grafiki:
-          </label>
-          <input
-            type="number"
-            {...register("imageId")}
-            placeholder="Grafika ID"
-            style={{
-              width: "100%",
-              padding: "10px",
-              borderRadius: "5px",
-              border: "1px solid #ccc",
-              fontSize: "16px",
-            }}
-          />
-        </div>
+        <FormField>
+          <Label>ID grafiki:</Label>
+          <NumberInput {...register("imageId")} placeholder="Grafika ID" />
+        </FormField>
       )}
 
-      <button
-        type="submit"
-        style={{
-          padding: "15px 20px",
-          fontSize: "18px",
-          backgroundColor: isEdit ? "#FF9800" : "#4CAF50",
-          color: "white",
-          border: "none",
-          borderRadius: "5px",
-          cursor: "pointer",
-          marginTop: "20px",
-        }}
-      >
+      <SubmitButton type="submit" isEdit={isEdit}>
         {isEdit ? "Zmień atrybuty" : "Stwórz"}
-      </button>
-    </form>
+      </SubmitButton>
+    </Form>
   );
 };
 

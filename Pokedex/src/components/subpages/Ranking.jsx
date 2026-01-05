@@ -1,12 +1,12 @@
 import { useEffect, useState, useMemo } from "react";
 import { getAllBattlePokemons } from "../../services/pokemonsApi";
+import LoadingMessage from "../shared/LoadingMessage";
 import {
   Container,
   Title,
   SortContainer,
   SortLabel,
   SortSelect,
-  LoadingMessage,
   PokemonList,
   PokemonCard,
   RankNumber,

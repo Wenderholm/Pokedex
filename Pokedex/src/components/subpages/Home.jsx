@@ -1,9 +1,12 @@
 import { useState } from "react";
 import PokemonCard from "../shared/PokemonCard";
 import Pagination from "../shared/Pagination";
+import LoadingMessage from "../shared/LoadingMessage";
 import { Grid } from "./Home.styled";
 import { usePokemons } from "../../context/PokemonsContext";
 import { useAuth } from "../../context/AuthContext";
+import { WelcomeWrapper } from "./Home.styled";
+import { StyledInput } from "../forms/Form.styled";
 
 const POKEMONS_PER_PAGE = 15;
 
@@ -26,7 +29,7 @@ const Home = () => {
     startIndex + POKEMONS_PER_PAGE
   );
 
-  if (loading) return <p>Ładowanie...</p>;
+  if (loading) return <LoadingMessage />;
   if (error) return <p>{error}</p>;
 
   return (
@@ -34,7 +37,7 @@ const Home = () => {
       {user ? (
         <>
           <h1>Pokemony</h1>
-          <input
+          <StyledInput
             type="text"
             placeholder="Szukaj Pokémona..."
             value={search}
@@ -57,12 +60,10 @@ const Home = () => {
           />
         </>
       ) : (
-        <div style={{ textAlign: "center", padding: "50px" }}>
+        <WelcomeWrapper>
           <h1>Witaj w Pokedex!</h1>
-          <p style={{ fontSize: "18px", color: "#666", marginTop: "20px" }}>
-            Musisz się zalogować, aby zobaczyć pokemony.
-          </p>
-        </div>
+          <p>Musisz się zalogować albo zarejestrować, aby zobaczyć pokemony.</p>
+        </WelcomeWrapper>
       )}
     </div>
   );

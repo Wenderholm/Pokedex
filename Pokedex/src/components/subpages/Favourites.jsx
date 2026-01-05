@@ -1,11 +1,12 @@
 import { useFavourites } from "../../context/FavouritesContext";
 import PokemonCard from "../shared/PokemonCard";
+import LoadingMessage from "../shared/LoadingMessage";
 import { Grid } from "./Home.styled";
 
 const Favourites = () => {
   const { favourites, loading } = useFavourites();
 
-  if (loading) return <p>Ładowanie...</p>;
+  if (loading) return <LoadingMessage />;
 
   if (favourites.length === 0) {
     return <p>Nie masz jeszcze ulubionych Pokémonów ❤️</p>;

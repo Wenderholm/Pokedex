@@ -27,12 +27,12 @@ const Navbar = () => {
             <StyledLink to="/arena">Arena</StyledLink>
             <StyledLink to="/ranking">Ranking</StyledLink>
             <StyledLink to="/edit">Edycja</StyledLink>
-            <LogoutButton />
+            <LogoutButton>Wyloguj</LogoutButton>
           </>
         ) : (
           <>
-            <StyledLink to="/login">Login</StyledLink>
-            <StyledLink to="/register">Register</StyledLink>
+            <StyledLink to="/login">Logowanie</StyledLink>
+            <StyledLink to="/register">Rejestracja</StyledLink>
           </>
         )}
       </LinksContainer>

@@ -3,6 +3,7 @@ import { useFavourites } from "../../context/FavouritesContext";
 import { useArena } from "../../context/ArenaContext";
 import { usePokemons } from "../../context/PokemonsContext";
 import PokemonCard from "../shared/PokemonCard.jsx";
+import LoadingMessage from "../shared/LoadingMessage";
 import {
   PokemonDetailsContainer,
   PokemonCardWrapper,
@@ -26,7 +27,7 @@ const PokemonDetails = () => {
   const { toggleFavourite, isFavourite } = useFavourites();
   const { addToArena, isInArena, arena } = useArena();
 
-  if (loading) return <p>Ładowanie...</p>;
+  if (loading) return <LoadingMessage />;
   if (!pokemon) return null;
 
   return (

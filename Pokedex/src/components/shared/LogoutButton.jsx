@@ -1,7 +1,7 @@
 import { useAuth } from "../../context/AuthContext";
 import { Button } from "./Button.styled";
 
-const LogoutButton = () => {
+const LogoutButton = ({ children }) => {
   const { logout } = useAuth();
 
   return (
@@ -10,7 +10,7 @@ const LogoutButton = () => {
         logout();
       }}
     >
-      Logout
+      {children}
     </Button>
   );
 };
