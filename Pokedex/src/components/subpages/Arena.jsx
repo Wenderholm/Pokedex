@@ -7,6 +7,18 @@ import {
 } from "../../services/pokemonsApi";
 import PokemonCard from "../shared/PokemonCard";
 import { useState } from "react";
+import {
+  ArenaContainer,
+  ArenaFightArea,
+  PokemonContainer,
+  PokemonTitle,
+  RemoveButton,
+  FightButtonContainer,
+  FightButton,
+  ButtonsContainer,
+  NewBattleButton,
+  ExitArenaButton,
+} from "./Arena.styled";
 
 const Arena = () => {
   const { arena, removeFromArena, resetArena, updateArenaPokemons } =
@@ -82,141 +94,62 @@ const Arena = () => {
   };
 
   return (
-    <div>
+    <ArenaContainer>
       <h1>Arena</h1>
       <h2>
         {arena.length < 2 ? (
           <p>Dodaj Pokémony do areny</p>
         ) : (
-          <p>POKEMONY GOTOWE DO WALKI </p>
+          <p>POKEMONY GOTOWE DO WALKI</p>
         )}
       </h2>
-      <div
-        style={{
-          display: "flex",
-          gap: "20px",
-          justifyContent: "center",
-          alignItems: "flex-start",
-        }}
-      >
+      <ArenaFightArea>
         {arena[0] && (
-          <div
-            style={{
-              opacity:
-                battleResult && battleResult.loser.id === arena[0].id ? 0.3 : 1,
-              transition: "opacity 0.5s ease",
-              border:
-                battleResult && battleResult.winner.id === arena[0].id
-                  ? "3px solid gold"
-                  : "none",
-              borderRadius:
-                battleResult && battleResult.winner.id === arena[0].id
-                  ? "20px"
-                  : "0",
-              boxShadow:
-                battleResult && battleResult.winner.id === arena[0].id
-                  ? "0 0 20px gold"
-                  : "none",
-            }}
-          >
-            <h3>Pierwszy Pokemon</h3>
-            <PokemonCard pokemon={arena[0]} />
-            <button
-              onClick={() => removeFromArena(arena[0]?.id)}
-              style={{ marginTop: "10px" }}
-            >
-              Usuń z areny
-            </button>
-          </div>
+          <PokemonContainer battleResult={battleResult} pokemonId={arena[0].id}>
+            <PokemonTitle>Pierwszy Pokemon</PokemonTitle>
+            <PokemonCard pokemon={arena[0]} battleResult={battleResult} />
+            <RemoveButton onClick={() => removeFromArena(arena[0]?.id)}>
+              X
+            </RemoveButton>
+          </PokemonContainer>
         )}
 
         {arena.length === 2 && (
-          <div style={{ alignSelf: "center" }}>
-            <button
-              disabled={arena.length !== 2}
+          <FightButtonContainer>
+            <FightButton
+              disabled={arena.length !== 2 || battleResult !== null}
               onClick={fight}
-              style={{
-                padding: "15px 30px",
-                fontSize: "20px",
-                fontWeight: "bold",
-                backgroundColor: "#ff4444",
-                color: "white",
-                border: "none",
-                borderRadius: "10px",
-                cursor: "pointer",
-              }}
+              battleResult={battleResult}
             >
               ⚔️ WALCZ! ⚔️
-            </button>
-          </div>
+            </FightButton>
+          </FightButtonContainer>
         )}
 
         {arena[1] && (
-          <div
-            style={{
-              opacity:
-                battleResult && battleResult.loser.id === arena[1].id ? 0.3 : 1,
-              transition: "opacity 0.5s ease",
-              border:
-                battleResult && battleResult.winner.id === arena[1].id
-                  ? "3px solid gold"
-                  : "none",
-              borderRadius:
-                battleResult && battleResult.winner.id === arena[1].id
-                  ? "20px"
-                  : "0",
-              boxShadow:
-                battleResult && battleResult.winner.id === arena[1].id
-                  ? "0 0 20px gold"
-                  : "none",
-            }}
-          >
-            <h3>Drugi Pokemon</h3>
-            <PokemonCard pokemon={arena[1]} />
-            <button
-              onClick={() => removeFromArena(arena[1]?.id)}
-              style={{ marginTop: "10px" }}
-            >
-              Usuń z areny
-            </button>
-          </div>
+          <PokemonContainer battleResult={battleResult} pokemonId={arena[1].id}>
+            <PokemonTitle>Drugi Pokemon</PokemonTitle>
+            <PokemonCard pokemon={arena[1]} battleResult={battleResult} />{" "}
+            <RemoveButton onClick={() => removeFromArena(arena[1]?.id)}>
+              X
+            </RemoveButton>
+          </PokemonContainer>
         )}
-      </div>
-      <div style={{ marginTop: "30px" }}>
+      </ArenaFightArea>
+      <ButtonsContainer>
         {battleResult && (
-          <button
-            onClick={resetBattle}
-            style={{
-              padding: "10px 20px",
-              backgroundColor: "#4CAF50",
-              color: "white",
-              border: "none",
-              borderRadius: "5px",
-              cursor: "pointer",
-              marginRight: "10px",
-            }}
-          >
-            🔄 Nowa walka
-          </button>
+          <NewBattleButton onClick={resetBattle}>🔄 Nowa walka</NewBattleButton>
         )}
-        <button
+        <ExitArenaButton
           onClick={() => {
             resetArena();
             resetBattle();
           }}
-          style={{
-            padding: "10px 20px",
-            backgroundColor: "#666",
-            color: "white",
-            border: "none",
-            borderRadius: "5px",
-            cursor: "pointer",
-          }}
         >
           🚪 Opuść arenę
-        </button>
-      </div>
-    </div>
+        </ExitArenaButton>
+      </ButtonsContainer>
+    </ArenaContainer>
   );
 };
 

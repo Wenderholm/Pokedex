@@ -11,12 +11,14 @@ import {
   ScoreCard,
 } from "./PokemonCard.styled";
 
-const PokemonCard = ({ pokemon }) => {
+const PokemonCard = ({ pokemon, battleResult }) => {
   const navigate = useNavigate();
 
   return (
     <Card
       onClick={() => navigate(`/pokemon/${pokemon.id}`)}
+      pokemon={pokemon}
+      battleResult={battleResult}
       // onMouseEnter={(e) => {
       //   e.currentTarget.style.borderColor = "red";
       //   e.currentTarget.style.transform = "scale(1.05)";

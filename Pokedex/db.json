@@ -52,8 +52,8 @@
       "name": "blastoise",
       "weight": 855,
       "ability": "torrent",
-      "baseExperience": 299,
-      "wins": 6,
+      "baseExperience": 329,
+      "wins": 9,
       "loses": 0,
       "height": "100"
     },
@@ -63,9 +63,9 @@
       "name": "ivysaur",
       "weight": 130,
       "ability": "overgrow",
-      "baseExperience": 232,
-      "wins": 9,
-      "loses": 3,
+      "baseExperience": 282,
+      "wins": 14,
+      "loses": 8,
       "height": "120"
     },
     {
@@ -75,9 +75,9 @@
       "weight": 69,
       "ability": "overgrow",
       "height": 7,
-      "baseExperience": 74,
-      "wins": 1,
-      "loses": 13
+      "baseExperience": 104,
+      "wins": 4,
+      "loses": 21
     },
     {
       "id": "71c9",
@@ -97,8 +97,8 @@
       "weight": 100,
       "ability": "blaze",
       "height": 7,
-      "baseExperience": 72,
-      "wins": 0,
+      "baseExperience": 82,
+      "wins": 1,
       "loses": 3
     },
     {
@@ -108,8 +108,8 @@
       "weight": 1000,
       "ability": "overgrow",
       "height": 20,
-      "baseExperience": 246,
-      "wins": 1,
+      "baseExperience": 326,
+      "wins": 9,
       "loses": 0
     },
     {
@@ -153,8 +153,8 @@
       "name": "charizard",
       "weight": 905,
       "height": 17,
-      "baseExperience": 270,
-      "wins": 3,
+      "baseExperience": 300,
+      "wins": 6,
       "loses": 0
     },
     {
@@ -165,7 +165,7 @@
       "height": 10,
       "baseExperience": 142,
       "wins": 0,
-      "loses": 2
+      "loses": 4
     },
     {
       "id": "9129",
@@ -185,7 +185,7 @@
       "height": 11,
       "baseExperience": 152,
       "wins": 1,
-      "loses": 0
+      "loses": 3
     },
     {
       "id": "2ad3",
@@ -195,7 +195,7 @@
       "height": 3,
       "baseExperience": 39,
       "wins": 0,
-      "loses": 1
+      "loses": 2
     },
     {
       "id": "0a2d",
@@ -216,6 +216,56 @@
       "baseExperience": 198,
       "wins": 2,
       "loses": 0
+    },
+    {
+      "id": "479e",
+      "pokemonId": 69,
+      "name": "bellsprout",
+      "weight": 40,
+      "height": 7,
+      "baseExperience": 60,
+      "wins": 0,
+      "loses": 3
+    },
+    {
+      "id": "bbbd",
+      "pokemonId": 11,
+      "name": "metapod",
+      "weight": 99,
+      "height": 7,
+      "baseExperience": 122,
+      "wins": 5,
+      "loses": 0
+    },
+    {
+      "id": "ff34",
+      "pokemonId": 13,
+      "name": "weedle",
+      "weight": 32,
+      "height": 3,
+      "baseExperience": 39,
+      "wins": 0,
+      "loses": 3
+    },
+    {
+      "id": "665d",
+      "pokemonId": 104,
+      "name": "cubone",
+      "weight": 65,
+      "height": 4,
+      "baseExperience": 64,
+      "wins": 0,
+      "loses": 2
+    },
+    {
+      "id": "1f03",
+      "pokemonId": 84,
+      "name": "doduo",
+      "weight": 392,
+      "height": 14,
+      "baseExperience": 62,
+      "wins": 0,
+      "loses": 1
     }
   ]
 }
