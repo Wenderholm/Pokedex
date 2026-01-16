@@ -17,6 +17,12 @@
       "name": "Teresa",
       "email": "teresa@wp.pl",
       "password": "Teresa123!"
+    },
+    {
+      "id": "5b6f",
+      "name": "Darek",
+      "email": "darek@wp.pl",
+      "password": "19Wend!19"
     }
   ],
   "favourites": [
@@ -55,6 +61,18 @@
       "baseExperience": 63,
       "wins": 0,
       "loses": 5
+    },
+    {
+      "id": "d37e",
+      "pokemonId": 2,
+      "name": "ivysaur",
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png",
+      "height": 10,
+      "weight": 130,
+      "ability": "overgrow",
+      "baseExperience": 332,
+      "wins": 19,
+      "loses": 8
     }
   ],
   "pokemons": [
@@ -75,8 +93,8 @@
       "name": "ivysaur",
       "weight": 130,
       "ability": "overgrow",
-      "baseExperience": 322,
-      "wins": 18,
+      "baseExperience": 332,
+      "wins": 19,
       "loses": 8,
       "height": "120"
     },
@@ -89,7 +107,7 @@
       "height": 7,
       "baseExperience": 104,
       "wins": 4,
-      "loses": 21
+      "loses": 22
     },
     {
       "id": "71c9",
@@ -165,8 +183,8 @@
       "name": "charizard",
       "weight": 905,
       "height": 17,
-      "baseExperience": 300,
-      "wins": 6,
+      "baseExperience": 310,
+      "wins": 7,
       "loses": 0
     },
     {
@@ -177,7 +195,7 @@
       "height": 10,
       "baseExperience": 142,
       "wins": 0,
-      "loses": 4
+      "loses": 5
     },
     {
       "id": "9129",

@@ -7,7 +7,7 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h1`
-  color: #333;
+  color: ${({ theme }) => theme.text};
   text-align: center;
   margin-bottom: 30px;
 `;
@@ -21,7 +21,7 @@ export const SortContainer = styled.div`
 
 export const SortLabel = styled.label`
   font-weight: bold;
-  color: #333;
+  color: ${({ theme }) => theme.text};
 `;
 
 export const SortSelect = styled.select`
@@ -42,7 +42,7 @@ export const SortSelect = styled.select`
 export const LoadingMessage = styled.p`
   text-align: center;
   font-size: 18px;
-  color: #666;
+  color: ${({ theme }) => theme.text};
   padding: 50px;
 `;
 
@@ -70,7 +70,7 @@ export const RankNumber = styled.strong`
   font-weight: bold;
   margin-right: 15px;
   min-width: 30px;
-  color: #666;
+  color: ${({ theme }) => theme.text};
 `;
 
 export const PokemonImage = styled.img`
@@ -90,7 +90,7 @@ export const PokemonInfo = styled.div`
 export const PokemonName = styled.span`
   font-weight: bold;
   text-transform: capitalize;
-  color: #333;
+  color: ${({ theme }) => theme.text};
   font-size: 16px;
   min-width: 120px;
 `;

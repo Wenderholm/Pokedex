@@ -11,18 +11,23 @@ export const NavStyle = styled.nav`
   color: white;
 `;
 
+export const StyledLinkWrapper = styled.div``;
+export const UserWrapper = styled.div``;
+
 // RouterLink = oryginalny <Link> z react-router-dom
 // StyledLink = Twój link z własnym stylem
 export const StyledLink = styled(RouterLink)`
-  background-color: #2196f3;
-  padding: 10px 25px;
-  border-radius: 6px;
-  color: white;
-  text-transform: uppercase;
+  font-size: 14px;
   font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  margin-left: 10px;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px 45px;
+  border-radius: 5px;
   text-decoration: none;
-  margin: 0 10px;
-
   &:hover {
     color: #ffcb05;
   }
@@ -30,7 +35,8 @@ export const StyledLink = styled(RouterLink)`
 
 export const LinksContainer = styled.div`
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: end;
 `;
 
 export const LogoContainer = styled(RouterLink)`
@@ -40,6 +46,6 @@ export const LogoContainer = styled(RouterLink)`
 `;
 
 export const PokemonLogo = styled.img`
-  height: 40px;
+  height: 70px;
   width: auto;
 `;

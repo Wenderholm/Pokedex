@@ -8,13 +8,13 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h1`
-  color: #333;
+  color: ${({ theme }) => theme.text};
   text-align: center;
   margin-bottom: 30px;
 `;
 
 export const Subtitle = styled.h2`
-  color: #555;
+  color: ${({ theme }) => theme.text};
   margin-bottom: 20px;
 `;
 

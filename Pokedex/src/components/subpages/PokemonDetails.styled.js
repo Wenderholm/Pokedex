@@ -37,6 +37,7 @@ export const ExpSection = styled.div`
 `;
 
 export const ExpSectionPokemonName = styled.h2`
+  color: black;
   margin: 0;
   text-align: center;
   font-size: 22px;
@@ -72,6 +73,7 @@ export const StatValue = styled.span`
 `;
 
 export const StatLabel = styled.span`
+  color: #000;
   font-size: 16px;
   font-weight: 700;
   text-transform: none;
