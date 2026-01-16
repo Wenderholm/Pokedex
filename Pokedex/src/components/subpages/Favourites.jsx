@@ -17,20 +17,21 @@ const Favourites = () => {
       <h1>Ulubione Pokémony</h1>
       <Grid>
         {favourites.map((favPokemon) => (
-          // mozemy wstaiwic zamiast pokemon={favPokemon}
-          // pokemon={{id: favPokemon.id, name: favPokemon.name, image: favPokemon.image itd}}
-          <PokemonCard key={favPokemon.id} pokemon={favPokemon} />
-          //  <PokemonCard key={favPokemon.id} pokemon={{
-          //    id: favPokemon.id,
-          //    name: favPokemon.name,
-          //    image: favPokemon.image,
-          //    height: favPokemon.height,
-          //    weight: favPokemon.weight,
-          //    ability: favPokemon.ability,
-          //    baseExperience: favPokemon.baseExperience,
-          //    wins: favPokemon.wins,
-          //    loses: favPokemon.loses,
-          //  }} />
+          <PokemonCard
+            key={favPokemon.id} // klucz z JSON server ID
+            pokemon={{
+              id: favPokemon.pokemonId, // używamy pokemonId jako id
+              name: favPokemon.name,
+              image: favPokemon.image,
+              height: favPokemon.height,
+              weight: favPokemon.weight,
+              ability: favPokemon.ability,
+              baseExperience: favPokemon.baseExperience,
+              wins: favPokemon.wins || 0,
+              loses: favPokemon.loses || 0,
+            }}
+            battleResult={null}
+          />
         ))}
       </Grid>
     </div>

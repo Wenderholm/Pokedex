@@ -19,12 +19,14 @@ import {
   NewBattleButton,
   ExitArenaButton,
 } from "./Arena.styled";
+import { BattleResultModal } from "./BattleResultModal";
 
 const Arena = () => {
   const { arena, removeFromArena, resetArena, updateArenaPokemons } =
     useArena();
   const { refreshPokemons } = usePokemons();
   const [battleResult, setBattleResult] = useState(null); // { winner: pokemon, loser: pokemon }
+  const [showModal, setShowModal] = useState(false);
 
   const fight = async () => {
     const [p1, p2] = arena;
@@ -56,9 +58,9 @@ const Arena = () => {
     const updatedLoser = { ...loser, loses: (loser.loses || 0) + 1 };
     updateArenaPokemons([updatedWinner, updatedLoser]);
 
-    // Pokazujemy wynik po krótkiej pauzie
+    // Pokazujemy modal z wynikiem
     setTimeout(() => {
-      alert(`🏆 Wygrywa ${winner.name}`);
+      setShowModal(true);
     }, 1000);
   };
 
@@ -91,6 +93,11 @@ const Arena = () => {
 
   const resetBattle = () => {
     setBattleResult(null);
+    setShowModal(false);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
   };
 
   return (
@@ -149,6 +156,10 @@ const Arena = () => {
           🚪 Opuść arenę
         </ExitArenaButton>
       </ButtonsContainer>
+
+      {showModal && (
+        <BattleResultModal battleResult={battleResult} onClose={closeModal} />
+      )}
     </ArenaContainer>
   );
 };

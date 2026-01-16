@@ -14,9 +14,13 @@ import {
 const PokemonCard = ({ pokemon, battleResult }) => {
   const navigate = useNavigate();
 
+  const handleClick = () => {
+    navigate(`/pokemon/${pokemon.id}`);
+  };
+
   return (
     <Card
-      onClick={() => navigate(`/pokemon/${pokemon.id}`)}
+      onClick={handleClick}
       pokemon={pokemon}
       battleResult={battleResult}
       // onMouseEnter={(e) => {

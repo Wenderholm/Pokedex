@@ -21,28 +21,40 @@
   ],
   "favourites": [
     {
-      "id": "d266",
-      "pokemonId": 1,
-      "name": "bulbasaur",
-      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
-      "height": 7,
-      "weight": 69,
-      "ability": "overgrow",
-      "baseExperience": 74,
-      "wins": 1,
-      "loses": 11
+      "id": "0db7",
+      "pokemonId": 4,
+      "name": "charmander",
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
+      "height": 6,
+      "weight": 85,
+      "ability": "blaze",
+      "baseExperience": 62,
+      "wins": 0,
+      "loses": 1
     },
     {
-      "id": "5a9a",
-      "pokemonId": 5,
-      "name": "charmeleon",
-      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png",
-      "height": 11,
-      "weight": 190,
+      "id": "dede",
+      "pokemonId": 6,
+      "name": "charizard",
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
+      "height": 17,
+      "weight": 905,
       "ability": "blaze",
-      "baseExperience": 142,
-      "wins": 0,
+      "baseExperience": 300,
+      "wins": 6,
       "loses": 0
+    },
+    {
+      "id": "0f61",
+      "pokemonId": 7,
+      "name": "squirtle",
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
+      "height": 5,
+      "weight": 90,
+      "ability": "torrent",
+      "baseExperience": 63,
+      "wins": 0,
+      "loses": 5
     }
   ],
   "pokemons": [
@@ -63,8 +75,8 @@
       "name": "ivysaur",
       "weight": 130,
       "ability": "overgrow",
-      "baseExperience": 282,
-      "wins": 14,
+      "baseExperience": 322,
+      "wins": 18,
       "loses": 8,
       "height": "120"
     },
@@ -127,13 +139,13 @@
       "id": "6be9",
       "pokemonId": 1766954692019,
       "name": "Zosia",
-      "weight": 199,
-      "height": 100,
-      "baseExperience": 100,
+      "weight": "200",
+      "height": "150",
+      "baseExperience": "200010",
       "imageId": 157,
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/157.png",
-      "wins": 0,
-      "loses": 0
+      "wins": 2,
+      "loses": 1
     },
     {
       "id": "74dd",
@@ -175,7 +187,7 @@
       "height": 6,
       "baseExperience": 62,
       "wins": 0,
-      "loses": 1
+      "loses": 4
     },
     {
       "id": "cf93",
@@ -266,6 +278,28 @@
       "baseExperience": 62,
       "wins": 0,
       "loses": 1
+    },
+    {
+      "id": "5067",
+      "pokemonId": 1767704445145,
+      "name": "Antek W",
+      "weight": 100,
+      "height": 150,
+      "baseExperience": 1530,
+      "imageId": 169,
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/169.png",
+      "wins": 3,
+      "loses": 2
+    },
+    {
+      "id": "c008",
+      "pokemonId": 26,
+      "name": "raichu",
+      "weight": 300,
+      "height": 8,
+      "baseExperience": 218,
+      "wins": 0,
+      "loses": 3
     }
   ]
 }
