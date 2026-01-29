@@ -73,6 +73,18 @@
       "baseExperience": 332,
       "wins": 19,
       "loses": 8
+    },
+    {
+      "id": "eee6",
+      "pokemonId": 3,
+      "name": "venusaur",
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png",
+      "height": 20,
+      "weight": 1000,
+      "ability": "overgrow",
+      "baseExperience": 326,
+      "wins": 9,
+      "loses": 0
     }
   ],
   "pokemons": [
@@ -82,8 +94,8 @@
       "name": "blastoise",
       "weight": 855,
       "ability": "torrent",
-      "baseExperience": 329,
-      "wins": 9,
+      "baseExperience": 339,
+      "wins": 10,
       "loses": 0,
       "height": "100"
     },
@@ -245,7 +257,7 @@
       "height": 11,
       "baseExperience": 198,
       "wins": 2,
-      "loses": 0
+      "loses": 1
     },
     {
       "id": "479e",
@@ -318,6 +330,18 @@
       "baseExperience": 218,
       "wins": 0,
       "loses": 3
+    },
+    {
+      "id": "1212",
+      "pokemonId": 1769084666894,
+      "name": "Paszko",
+      "weight": 100,
+      "height": 100,
+      "baseExperience": 1500,
+      "imageId": 168,
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/168.png",
+      "wins": 0,
+      "loses": 0
     }
   ]
 }

@@ -11,18 +11,20 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
+  // podsłuchujemy zmiany w localStorage przy ładowaniu aplikacji
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     }
   }, []);
-
+  // funkcje logowania i wylogowywania
+  // - login zapisuje dane użytkownika w stanie i localStorage
   const login = (userData) => {
     setUser(userData);
     localStorage.setItem("user", JSON.stringify(userData));
   };
-
+  // - logout czyści dane użytkownika ze stanu i localStorage oraz przekierowuje na stronę główną
   const logout = () => {
     setUser(null);
     localStorage.removeItem("user");

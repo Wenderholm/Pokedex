@@ -23,7 +23,7 @@ export const PokemonsProvider = ({ children }) => {
 
       // 🔹 API details
       const details = await Promise.all(
-        apiRes.data.results.map((p) => pokeApi.get(p.url))
+        apiRes.data.results.map((p) => pokeApi.get(p.url)),
       );
 
       const apiPokemons = details.map((res) => ({
@@ -36,10 +36,10 @@ export const PokemonsProvider = ({ children }) => {
         baseExperience: res.data.base_experience,
       }));
 
-      // 🔹 MERGE API + JSON
+      //  MERGE API + JSON
       const mergedApiPokemons = apiPokemons.map((apiPokemon) => {
         const battlePokemon = battleRes.data.find(
-          (bp) => bp.pokemonId === apiPokemon.id
+          (bp) => bp.pokemonId === apiPokemon.id,
         );
 
         return {
@@ -51,7 +51,7 @@ export const PokemonsProvider = ({ children }) => {
         };
       });
 
-      // 🔥 DODAJEMY CUSTOM POKÉMONY
+      //  DODAJEMY CUSTOM POKÉMONY
       const customPokemons = battleRes.data
         .filter((bp) => bp.pokemonId > TOTAL_POKEMONS)
         .map((bp) => ({

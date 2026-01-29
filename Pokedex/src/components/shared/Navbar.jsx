@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
 import { useAuth } from "../../context/AuthContext";
-import { useTheme } from "../../context/ThemeContext";
+import { ThemeContext } from "../../context/ThemeContext";
 import LogoutButton from "./LogoutButton";
 
 import Switch from "@mui/material/Switch";
@@ -18,7 +19,7 @@ import pokemonLogoImg from "../../assets/pokemonLogo.png";
 
 const Navbar = () => {
   const { user } = useAuth();
-  const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
     <NavStyle>
