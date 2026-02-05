@@ -1,7 +1,11 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { getPokemonById, updatePokemon } from "../../services/pokemonsApi";
-import PokemonForm from "../../components/PokemonForm";
+import {
+  getBattlePokemonById,
+  updatePokemon,
+} from "../../services/pokemonsApi";
+// import PokemonForm from "../../components/PokemonForm";
+import PokemonForm from "../../components/forms/PokemonForm";
 import { useSnackbar } from "notistack";
 
 const EditPokemon = () => {
@@ -11,7 +15,7 @@ const EditPokemon = () => {
   const [pokemon, setPokemon] = useState(null);
 
   useEffect(() => {
-    getPokemonById(id).then(setPokemon);
+    getBattlePokemonById(id).then((response) => setPokemon(response.data));
   }, [id]);
 
   const onSubmit = async (data) => {

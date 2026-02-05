@@ -8,22 +8,25 @@ export const Card = styled.div`
   cursor: pointer;
   border: 2px solid;
   border-color: ${(props) =>
-    !props.battleResult
+    !props.$battleResult
       ? "#ccc"
-      : props.battleResult.winner?.id === props.pokemon?.id
-      ? "gold"
-      : "#ff4444"};
+      : props.$battleResult.winner?.id === props.$pokemon?.id
+        ? "gold"
+        : "#ff4444"};
   box-shadow: ${(props) =>
-    props.battleResult?.winner?.id === props.pokemon?.id
+    props.$battleResult?.winner?.id === props.$pokemon?.id
       ? "0 0 20px gold"
       : "none"};
   opacity: ${(props) =>
-    !props.battleResult
+    !props.$battleResult
       ? "1"
-      : props.battleResult.loser?.id === props.pokemon?.id
-      ? "0.5"
-      : "1"};
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease,
+      : props.$battleResult.loser?.id === props.$pokemon?.id
+        ? "0.5"
+        : "1"};
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
     opacity 0.2s ease;
   position: relative;
   &:hover {

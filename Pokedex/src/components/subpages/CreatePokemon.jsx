@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { createPokemon, getAllBattlePokemons } from "../../services/pokemonApi";
+// import { createPokemon, getAllBattlePokemons } from "../../services/pokemonApi";
+import {
+  createPokemon,
+  getAllBattlePokemons,
+} from "../../services/pokemonsApi";
 import { useSnackbar } from "notistack";
 
 const START_IMAGE_ID = 151;

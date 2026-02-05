@@ -27,55 +27,7 @@
   ],
   "favourites": [
     {
-      "id": "0db7",
-      "pokemonId": 4,
-      "name": "charmander",
-      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
-      "height": 6,
-      "weight": 85,
-      "ability": "blaze",
-      "baseExperience": 62,
-      "wins": 0,
-      "loses": 1
-    },
-    {
-      "id": "dede",
-      "pokemonId": 6,
-      "name": "charizard",
-      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
-      "height": 17,
-      "weight": 905,
-      "ability": "blaze",
-      "baseExperience": 300,
-      "wins": 6,
-      "loses": 0
-    },
-    {
-      "id": "0f61",
-      "pokemonId": 7,
-      "name": "squirtle",
-      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
-      "height": 5,
-      "weight": 90,
-      "ability": "torrent",
-      "baseExperience": 63,
-      "wins": 0,
-      "loses": 5
-    },
-    {
-      "id": "d37e",
-      "pokemonId": 2,
-      "name": "ivysaur",
-      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png",
-      "height": 10,
-      "weight": 130,
-      "ability": "overgrow",
-      "baseExperience": 332,
-      "wins": 19,
-      "loses": 8
-    },
-    {
-      "id": "eee6",
+      "id": "479d",
       "pokemonId": 3,
       "name": "venusaur",
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png",
@@ -105,8 +57,8 @@
       "name": "ivysaur",
       "weight": 130,
       "ability": "overgrow",
-      "baseExperience": 332,
-      "wins": 19,
+      "baseExperience": 362,
+      "wins": 22,
       "loses": 8,
       "height": "120"
     },
@@ -119,7 +71,7 @@
       "height": 7,
       "baseExperience": 104,
       "wins": 4,
-      "loses": 22
+      "loses": 25
     },
     {
       "id": "71c9",
@@ -150,8 +102,8 @@
       "weight": 1000,
       "ability": "overgrow",
       "height": 20,
-      "baseExperience": 326,
-      "wins": 9,
+      "baseExperience": 336,
+      "wins": 10,
       "loses": 0
     },
     {
@@ -205,8 +157,8 @@
       "name": "wartortle",
       "weight": 225,
       "height": 10,
-      "baseExperience": 142,
-      "wins": 0,
+      "baseExperience": 172,
+      "wins": 3,
       "loses": 5
     },
     {
@@ -217,7 +169,7 @@
       "height": 6,
       "baseExperience": 62,
       "wins": 0,
-      "loses": 4
+      "loses": 7
     },
     {
       "id": "cf93",
@@ -227,7 +179,7 @@
       "height": 11,
       "baseExperience": 152,
       "wins": 1,
-      "loses": 3
+      "loses": 4
     },
     {
       "id": "2ad3",

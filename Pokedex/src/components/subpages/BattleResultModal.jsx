@@ -14,7 +14,7 @@ export const BattleResultModal = ({ battleResult, onClose }) => {
 
   if (!battleResult) return null;
 
-  const { winner, loser } = battleResult;
+  const { winner } = battleResult;
 
   return ReactDOM.createPortal(
     <Overlay onClick={onClose}>
@@ -26,6 +26,6 @@ export const BattleResultModal = ({ battleResult, onClose }) => {
         <WinnerName>{winner.name}</WinnerName>
       </ModalContent>
     </Overlay>,
-    modalRoot
+    modalRoot,
   );
 };

@@ -35,13 +35,13 @@ export const FightButton = styled.button`
   font-size: 20px;
   font-weight: bold;
   background-color: ${(props) =>
-    props.battleResult !== null ? "#ccc" : "#ff4444"};
-  color: ${(props) => (props.battleResult !== null ? "#888" : "white")};
+    props.$battleResult !== null ? "#ccc" : "#ff4444"};
+  color: ${(props) => (props.$battleResult !== null ? "#888" : "white")};
   border: none;
   border-radius: 10px;
   cursor: ${(props) =>
-    props.battleResult !== null ? "not-allowed" : "pointer"};
-  opacity: ${(props) => (props.battleResult !== null ? 0.6 : 1)};
+    props.$battleResult !== null ? "not-allowed" : "pointer"};
+  opacity: ${(props) => (props.$battleResult !== null ? 0.6 : 1)};
   transition: all 0.3s ease;
 `;
 

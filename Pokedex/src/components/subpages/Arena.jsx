@@ -112,7 +112,10 @@ const Arena = () => {
       </h2>
       <ArenaFightArea>
         {arena[0] && (
-          <PokemonContainer battleResult={battleResult} pokemonId={arena[0].id}>
+          <PokemonContainer
+            $battleResult={battleResult}
+            $pokemonId={arena[0].id}
+          >
             <PokemonTitle>Pierwszy Pokemon</PokemonTitle>
             <PokemonCard pokemon={arena[0]} battleResult={battleResult} />
             <RemoveButton onClick={() => removeFromArena(arena[0]?.id)}>
@@ -126,7 +129,7 @@ const Arena = () => {
             <FightButton
               disabled={arena.length !== 2 || battleResult !== null}
               onClick={fight}
-              battleResult={battleResult}
+              $battleResult={battleResult}
             >
               ⚔️ WALCZ! ⚔️
             </FightButton>
@@ -134,7 +137,10 @@ const Arena = () => {
         )}
 
         {arena[1] && (
-          <PokemonContainer battleResult={battleResult} pokemonId={arena[1].id}>
+          <PokemonContainer
+            $battleResult={battleResult}
+            $pokemonId={arena[1].id}
+          >
             <PokemonTitle>Drugi Pokemon</PokemonTitle>
             <PokemonCard pokemon={arena[1]} battleResult={battleResult} />{" "}
             <RemoveButton onClick={() => removeFromArena(arena[1]?.id)}>

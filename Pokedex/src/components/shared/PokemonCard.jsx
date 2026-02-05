@@ -21,8 +21,8 @@ const PokemonCard = ({ pokemon, battleResult }) => {
   return (
     <Card
       onClick={handleClick}
-      pokemon={pokemon}
-      battleResult={battleResult}
+      $pokemon={pokemon}
+      $battleResult={battleResult}
       // onMouseEnter={(e) => {
       //   e.currentTarget.style.borderColor = "red";
       //   e.currentTarget.style.transform = "scale(1.05)";
