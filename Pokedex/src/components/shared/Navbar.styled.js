@@ -9,10 +9,49 @@ export const NavStyle = styled.nav`
   padding: 10px 20px;
   background-color: #292f33;
   color: white;
+  flex-wrap: wrap;
+
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+  }
 `;
 
-export const StyledLinkWrapper = styled.div``;
-export const UserWrapper = styled.div``;
+export const StyledLinkWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+
+  /* Tablet and mobile */
+  @media (max-width: 768px) {
+    justify-content: center;
+    width: 100%;
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
+export const UserWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 5px;
+
+  @media (max-width: 768px) {
+    margin-bottom: 10px;
+    justify-content: center;
+  }
+
+  @media (max-width: 480px) {
+    flex-direction: column;
+    text-align: center;
+  }
+`;
 
 // RouterLink = oryginalny <Link> z react-router-dom
 // StyledLink = Twój link z własnym stylem
@@ -28,24 +67,88 @@ export const StyledLink = styled(RouterLink)`
   padding: 10px 45px;
   border-radius: 5px;
   text-decoration: none;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  text-align: center;
+
   &:hover {
     color: #ffcb05;
+    background-color: #1976d2;
+    transform: translateY(-2px);
+  }
+
+  /* Desktop large */
+  @media (min-width: 1200px) {
+    font-size: 16px;
+    padding: 12px 50px;
+  }
+
+  /* Desktop standard */
+  @media (min-width: 992px) and (max-width: 1199px) {
+    font-size: 14px;
+    padding: 10px 40px;
+  }
+
+  /* Tablet */
+  @media (min-width: 768px) and (max-width: 991px) {
+    font-size: 13px;
+    padding: 8px 30px;
+    margin-left: 5px;
+  }
+
+  /* Mobile large */
+  @media (min-width: 480px) and (max-width: 767px) {
+    font-size: 12px;
+    padding: 8px 20px;
+    margin: 2px;
+    margin-left: 0;
+  }
+
+  /* Mobile small */
+  @media (max-width: 479px) {
+    font-size: 12px;
+    padding: 10px 15px;
+    margin: 3px 0;
+    margin-left: 0;
+    width: 140px;
   }
 `;
 
 export const LinksContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: end;
+  align-items: flex-end;
+
+  @media (max-width: 768px) {
+    align-items: center;
+    width: 100%;
+  }
 `;
 
 export const LogoContainer = styled(RouterLink)`
   display: flex;
   align-items: center;
   text-decoration: none;
+
+  @media (max-width: 768px) {
+    margin-bottom: 10px;
+  }
 `;
 
 export const PokemonLogo = styled.img`
   height: 70px;
   width: auto;
+
+  /* Responsive logo sizes */
+  @media (min-width: 1200px) {
+    height: 80px;
+  }
+
+  @media (max-width: 768px) {
+    height: 60px;
+  }
+
+  @media (max-width: 480px) {
+    height: 50px;
+  }
 `;

@@ -16,6 +16,7 @@ import {
   StatBadge,
   WinBadge,
   LoseBadge,
+  StatsContainer,
 } from "./Ranking.styled";
 
 const SORT_OPTIONS = {
@@ -86,11 +87,13 @@ const Ranking = () => {
 
             <PokemonInfo>
               <PokemonName>{pokemon.name}</PokemonName>
-              <StatBadge>EXP: {pokemon.baseExperience}</StatBadge>
-              <StatBadge>Weigh: {pokemon.weight}</StatBadge>
-              <StatBadge>Heigh: {pokemon.height}</StatBadge>
-              <WinBadge>W: {pokemon.wins}</WinBadge>
-              <LoseBadge>L: {pokemon.loses}</LoseBadge>
+              <StatsContainer>
+                <StatBadge>EXP: {pokemon.baseExperience}</StatBadge>
+                <StatBadge>Weight: {pokemon.weight}</StatBadge>
+                <StatBadge>Height: {pokemon.height}</StatBadge>
+                <WinBadge>W: {pokemon.wins}</WinBadge>
+                <LoseBadge>L: {pokemon.loses}</LoseBadge>
+              </StatsContainer>
             </PokemonInfo>
           </PokemonCard>
         ))}
