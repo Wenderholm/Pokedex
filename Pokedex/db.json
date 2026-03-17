@@ -27,16 +27,40 @@
   ],
   "favourites": [
     {
-      "id": "479d",
-      "pokemonId": 3,
-      "name": "venusaur",
-      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png",
-      "height": 20,
-      "weight": 1000,
-      "ability": "overgrow",
-      "baseExperience": 326,
-      "wins": 9,
+      "id": "7bf9",
+      "pokemonId": 7,
+      "name": "squirtle",
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
+      "height": 5,
+      "weight": 90,
+      "ability": "torrent",
+      "baseExperience": 63,
+      "wins": 0,
+      "loses": 5
+    },
+    {
+      "id": "a2ed",
+      "pokemonId": 9,
+      "name": "blastoise",
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png",
+      "height": 16,
+      "weight": 855,
+      "ability": "torrent",
+      "baseExperience": 339,
+      "wins": 10,
       "loses": 0
+    },
+    {
+      "id": "eb80",
+      "pokemonId": 1,
+      "name": "bulbasaur",
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+      "height": 7,
+      "weight": 69,
+      "ability": "overgrow",
+      "baseExperience": 104,
+      "wins": 4,
+      "loses": 27
     }
   ],
   "pokemons": [
@@ -44,12 +68,12 @@
       "id": "d897",
       "pokemonId": 9,
       "name": "blastoise",
-      "weight": 855,
+      "weight": 111,
       "ability": "torrent",
       "baseExperience": 339,
       "wins": 10,
       "loses": 0,
-      "height": "100"
+      "height": 100
     },
     {
       "id": "9ed6",
@@ -60,7 +84,7 @@
       "baseExperience": 362,
       "wins": 22,
       "loses": 8,
-      "height": "120"
+      "height": 120
     },
     {
       "id": "f716",
@@ -71,7 +95,7 @@
       "height": 7,
       "baseExperience": 104,
       "wins": 4,
-      "loses": 25
+      "loses": 27
     },
     {
       "id": "71c9",
@@ -147,8 +171,8 @@
       "name": "charizard",
       "weight": 905,
       "height": 17,
-      "baseExperience": 310,
-      "wins": 7,
+      "baseExperience": 320,
+      "wins": 8,
       "loses": 0
     },
     {
@@ -229,7 +253,7 @@
       "height": 7,
       "baseExperience": 122,
       "wins": 5,
-      "loses": 0
+      "loses": 1
     },
     {
       "id": "ff34",
@@ -282,18 +306,6 @@
       "baseExperience": 218,
       "wins": 0,
       "loses": 3
-    },
-    {
-      "id": "1212",
-      "pokemonId": 1769084666894,
-      "name": "Paszko",
-      "weight": 100,
-      "height": 100,
-      "baseExperience": 1500,
-      "imageId": 168,
-      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/168.png",
-      "wins": 0,
-      "loses": 0
     }
   ]
 }

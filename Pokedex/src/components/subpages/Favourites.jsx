@@ -18,9 +18,9 @@ const Favourites = () => {
       <Grid>
         {favourites.map((favPokemon) => (
           <PokemonCard
-            key={favPokemon.id} // klucz z JSON server ID
+            key={favPokemon.id} // key from JSON server ID
             pokemon={{
-              id: favPokemon.pokemonId, // używamy pokemonId jako id
+              id: favPokemon.pokemonId,
               name: favPokemon.name,
               image: favPokemon.image,
               height: favPokemon.height,

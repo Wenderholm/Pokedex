@@ -7,10 +7,20 @@ export const ArenaFightArea = styled.div`
   gap: 20px;
   justify-content: center;
   align-items: flex-start;
+
+  @media (max-width: 1100px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
 `;
 
 export const PokemonContainer = styled.div`
   position: relative;
+
+  @media (max-width: 1100px) {
+    width: min(420px, 100%);
+  }
 `;
 
 export const PokemonTitle = styled.h3``;
@@ -47,6 +57,13 @@ export const FightButton = styled.button`
 
 export const ButtonsContainer = styled.div`
   margin-top: 30px;
+
+  @media (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
 `;
 
 export const NewBattleButton = styled.button`
@@ -57,6 +74,11 @@ export const NewBattleButton = styled.button`
   border-radius: 5px;
   cursor: pointer;
   margin-right: 10px;
+
+  @media (max-width: 600px) {
+    margin-right: 0;
+    width: min(320px, 100%);
+  }
 `;
 
 export const ExitArenaButton = styled.button`
@@ -66,4 +88,8 @@ export const ExitArenaButton = styled.button`
   border: none;
   border-radius: 5px;
   cursor: pointer;
+
+  @media (max-width: 600px) {
+    width: min(320px, 100%);
+  }
 `;

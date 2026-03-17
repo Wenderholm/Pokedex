@@ -1,17 +1,34 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-// import { createPokemon, getAllBattlePokemons } from "../../services/pokemonApi";
 import {
   createPokemon,
   getAllBattlePokemons,
 } from "../../services/pokemonsApi";
+import { usePokemons } from "../../context/PokemonsContext";
 import { useSnackbar } from "notistack";
+import {
+  ArrowButton,
+  Container,
+  Form,
+  FormGroup,
+  ImageId,
+  ImageInfo,
+  ImagePreviewContainer,
+  ImageSelectorContainer,
+  Input,
+  Label,
+  PokemonImage,
+  SubmitButton,
+  Title,
+  UsedWarning,
+} from "./CreatePokemon.styled";
 
 const START_IMAGE_ID = 151;
 
 const CreatePokemon = () => {
   const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
+  const { refreshPokemons } = usePokemons();
 
   const [usedImageIds, setUsedImageIds] = useState([]);
   const [imageId, setImageId] = useState(START_IMAGE_ID);
@@ -22,8 +39,8 @@ const CreatePokemon = () => {
     height: "",
     baseExperience: "",
   });
+  const isImageUsed = usedImageIds.includes(imageId);
 
-  // 🔹 pobieramy użyte grafiki
   useEffect(() => {
     const fetchUsedImages = async () => {
       const res = await getAllBattlePokemons();
@@ -62,6 +79,8 @@ const CreatePokemon = () => {
       loses: 0,
     });
 
+    await refreshPokemons();
+
     enqueueSnackbar(`Nowy Pokémon ${form.name} został dodany`, {
       variant: "success",
     });
@@ -70,70 +89,97 @@ const CreatePokemon = () => {
   };
 
   return (
-    <form onSubmit={handleCreate}>
-      <h2>Stwórz Pokémona</h2>
+    <Container>
+      <Title>Stworz Pokemona</Title>
 
-      <input
-        name="name"
-        placeholder="Nazwa"
-        value={form.name}
-        onChange={handleChange}
-        required
-      />
+      <Form onSubmit={handleCreate}>
+        <FormGroup>
+          <Label htmlFor="name">Nazwa</Label>
+          <Input
+            id="name"
+            name="name"
+            placeholder="Nazwa"
+            value={form.name}
+            onChange={handleChange}
+            required
+          />
+        </FormGroup>
 
-      <input
-        name="weight"
-        type="number"
-        placeholder="Waga"
-        value={form.weight}
-        onChange={handleChange}
-        required
-      />
+        <FormGroup>
+          <Label htmlFor="weight">Waga</Label>
+          <Input
+            id="weight"
+            name="weight"
+            type="number"
+            placeholder="Waga"
+            value={form.weight}
+            onChange={handleChange}
+            required
+          />
+        </FormGroup>
 
-      <input
-        name="height"
-        type="number"
-        placeholder="Wzrost"
-        value={form.height}
-        onChange={handleChange}
-        required
-      />
+        <FormGroup>
+          <Label htmlFor="height">Wzrost</Label>
+          <Input
+            id="height"
+            name="height"
+            type="number"
+            placeholder="Wzrost"
+            value={form.height}
+            onChange={handleChange}
+            required
+          />
+        </FormGroup>
 
-      <input
-        name="baseExperience"
-        type="number"
-        placeholder="Doświadczenie"
-        value={form.baseExperience}
-        onChange={handleChange}
-        required
-      />
+        <FormGroup>
+          <Label htmlFor="baseExperience">Doswiadczenie</Label>
+          <Input
+            id="baseExperience"
+            name="baseExperience"
+            type="number"
+            placeholder="Doswiadczenie"
+            value={form.baseExperience}
+            onChange={handleChange}
+            required
+          />
+        </FormGroup>
 
-      {/* 🔹 wybór grafiki */}
-      <div>
-        <button
-          type="button"
-          onClick={() =>
-            setImageId((prev) => Math.max(START_IMAGE_ID, prev - 1))
-          }
-        >
-          ◀
-        </button>
+        <ImageSelectorContainer>
+          <ArrowButton
+            type="button"
+            disabled={imageId === START_IMAGE_ID}
+            onClick={() =>
+              setImageId((prev) => Math.max(START_IMAGE_ID, prev - 1))
+            }
+          >
+            ◀
+          </ArrowButton>
 
-        <img
-          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${imageId}.png`}
-          alt="pokemon"
-          style={{
-            opacity: usedImageIds.includes(imageId) ? 0.4 : 1,
-          }}
-        />
+          <ImagePreviewContainer>
+            <PokemonImage
+              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${imageId}.png`}
+              alt="pokemon"
+              $isUsed={isImageUsed}
+            />
+            <ImageInfo>
+              <ImageId>ID grafiki: {imageId}</ImageId>
+              {isImageUsed ? (
+                <UsedWarning>Ta grafika jest juz uzyta</UsedWarning>
+              ) : null}
+            </ImageInfo>
+          </ImagePreviewContainer>
 
-        <button type="button" onClick={() => setImageId((prev) => prev + 1)}>
-          ▶
-        </button>
-      </div>
+          <ArrowButton
+            type="button"
+            onClick={() => setImageId((prev) => prev + 1)}
+          >
+            ▶
+          </ArrowButton>
+        </ImageSelectorContainer>
 
-      <button type="submit">Stwórz</button>
-    </form>
+        <SubmitButton type="submit">Stworz</SubmitButton>
+      </Form>
+    </Container>
   );
 };
 

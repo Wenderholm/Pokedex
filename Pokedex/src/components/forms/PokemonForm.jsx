@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import {
   Form,
@@ -9,9 +10,15 @@ import {
 } from "./PokemonForm.styled";
 
 const PokemonForm = ({ defaultValues, onSubmit, isEdit }) => {
-  const { register, handleSubmit } = useForm({
+  const { register, handleSubmit, reset } = useForm({
     defaultValues,
   });
+
+  useEffect(() => {
+    if (defaultValues) {
+      reset(defaultValues);
+    }
+  }, [defaultValues, reset]);
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
@@ -27,17 +34,35 @@ const PokemonForm = ({ defaultValues, onSubmit, isEdit }) => {
 
       <FormField>
         <Label>{isEdit ? "Nowa waga (kg):" : "Waga (kg):"}</Label>
-        <NumberInput {...register("weight")} placeholder="Waga" />
+        <NumberInput
+          {...register("weight", {
+            required: true,
+            valueAsNumber: true,
+          })}
+          placeholder="Waga"
+        />
       </FormField>
 
       <FormField>
         <Label>{isEdit ? "Nowy wzrost (dm):" : "Wzrost (dm):"}</Label>
-        <NumberInput {...register("height")} placeholder="Wzrost" />
+        <NumberInput
+          {...register("height", {
+            required: true,
+            valueAsNumber: true,
+          })}
+          placeholder="Wzrost"
+        />
       </FormField>
 
       <FormField>
         <Label>{isEdit ? "Nowe doświadczenie:" : "Doświadczenie:"}</Label>
-        <NumberInput {...register("baseExperience")} placeholder="EXP" />
+        <NumberInput
+          {...register("baseExperience", {
+            required: true,
+            valueAsNumber: true,
+          })}
+          placeholder="EXP"
+        />
       </FormField>
 
       {!isEdit && (
@@ -47,7 +72,7 @@ const PokemonForm = ({ defaultValues, onSubmit, isEdit }) => {
         </FormField>
       )}
 
-      <SubmitButton type="submit" isEdit={isEdit}>
+      <SubmitButton type="submit" $isEdit={isEdit}>
         {isEdit ? "Zmień atrybuty" : "Stwórz"}
       </SubmitButton>
     </Form>

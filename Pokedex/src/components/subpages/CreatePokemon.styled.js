@@ -7,7 +7,7 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h1`
-  color: #333;
+  color: ${({ theme }) => theme.text};
   text-align: center;
   margin-bottom: 30px;
 `;
@@ -27,7 +27,7 @@ export const Label = styled.label`
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
-  color: #333;
+  color: ${({ theme }) => theme.text};
 `;
 
 export const Input = styled.input`
@@ -78,10 +78,10 @@ export const ImagePreviewContainer = styled.div`
 export const PokemonImage = styled.img`
   width: 120px;
   height: 120px;
-  opacity: ${(props) => (props.isUsed ? 0.3 : 1)};
-  filter: ${(props) => (props.isUsed ? "grayscale(100%)" : "none")};
+  opacity: ${(props) => (props.$isUsed ? 0.3 : 1)};
+  filter: ${(props) => (props.$isUsed ? "grayscale(100%)" : "none")};
   image-rendering: pixelated;
-  border: ${(props) => (props.isUsed ? "2px solid red" : "2px solid green")};
+  border: ${(props) => (props.$isUsed ? "2px solid red" : "2px solid green")};
   border-radius: 8px;
   padding: 10px;
   background-color: white;

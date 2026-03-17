@@ -8,7 +8,6 @@ import {
   PokemonDetailsContainer,
   PokemonCardWrapper,
   PokemonCardButtonWrapper,
-  ImageSection,
   ExpSection,
   PokemonImg,
   StatRowOne,
@@ -32,12 +31,11 @@ const PokemonDetails = () => {
 
   return (
     <>
-      {/* <PokemonCard pokemon={pokemon} /> */}
       <PokemonDetailsContainer>
         <PokemonCardWrapper>
-          <ImageSection>
+          <div>
             <PokemonImg src={pokemon.image} alt={pokemon.name} />
-          </ImageSection>
+          </div>
           <ExpSection>
             <ExpSectionPokemonName>{pokemon.name}</ExpSectionPokemonName>
             <StatRowOne>

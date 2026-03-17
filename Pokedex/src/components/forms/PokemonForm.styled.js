@@ -3,12 +3,17 @@ import styled from "styled-components";
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 20px;
+  width: min(520px, 100%);
+  margin: 20px auto;
 `;
 
 export const FormField = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
+  align-items: center;
 `;
 
 export const Label = styled.label`
@@ -38,12 +43,17 @@ export const Input = styled.input`
   }
 `;
 
-export const NumberInput = styled(Input).attrs({ type: "number" })``;
+export const NumberInput = styled(Input).attrs({ type: "number" })`
+  width: 90%;
+  align-self: center;
+`;
 
 export const SubmitButton = styled.button`
   padding: 15px 20px;
   font-size: 18px;
-  background-color: ${(props) => (props.isEdit ? "#FF9800" : "#4CAF50")};
+  width: 90%;
+
+  background-color: ${(props) => (props.$isEdit ? "#FF9800" : "#4CAF50")};
   color: white;
   border: none;
   border-radius: 5px;
@@ -53,7 +63,7 @@ export const SubmitButton = styled.button`
   transition: all 0.2s ease;
 
   &:hover {
-    background-color: ${(props) => (props.isEdit ? "#F57C00" : "#45a049")};
+    background-color: ${(props) => (props.$isEdit ? "#F57C00" : "#45a049")};
     transform: translateY(-1px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }

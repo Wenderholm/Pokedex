@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { getAllBattlePokemons } from "../../services/pokemonsApi";
 import {
   Container,
@@ -18,11 +19,13 @@ import {
 } from "./Edit.styled";
 
 const Edit = () => {
+  const location = useLocation();
   const [pokemons, setPokemons] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchPokemons = async () => {
+      setLoading(true);
       try {
         const response = await getAllBattlePokemons();
         setPokemons(response.data);
@@ -34,7 +37,7 @@ const Edit = () => {
     };
 
     fetchPokemons();
-  }, []);
+  }, [location.key, location.search, location.state]);
 
   if (loading) return <div>Ładowanie pokemonów...</div>;
 

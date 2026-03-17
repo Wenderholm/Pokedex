@@ -5,7 +5,6 @@ export const Container = styled.div`
   max-width: 800px;
   margin: 0 auto;
 
-  /* Mobile responsiveness */
   @media (max-width: 768px) {
     padding: 10px;
     max-width: 100%;
@@ -100,7 +99,6 @@ export const PokemonCard = styled.div`
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
 
-  /* Mobile responsiveness */
   @media (max-width: 768px) {
     flex-direction: column;
     padding: 12px;
@@ -117,7 +115,7 @@ export const RankNumber = styled.strong`
   font-weight: bold;
   margin-right: 15px;
   min-width: 30px;
-  color: ${({ theme }) => theme.text};
+  color: black;
 
   @media (max-width: 768px) {
     align-self: flex-start;
@@ -153,7 +151,6 @@ export const PokemonInfo = styled.div`
   align-items: center;
   gap: 15px;
 
-  /* Mobile: wrap info items */
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: flex-start;
@@ -169,7 +166,7 @@ export const PokemonInfo = styled.div`
 export const PokemonName = styled.span`
   font-weight: bold;
   text-transform: capitalize;
-  color: ${({ theme }) => theme.text};
+  color: black;
   font-size: 16px;
   min-width: 120px;
 
@@ -197,7 +194,6 @@ export const StatBadge = styled.span`
   min-width: 60px;
   text-align: center;
 
-  /* Mobile: make badges wrap nicely */
   @media (max-width: 768px) {
     margin: 2px;
     flex: 0 0 auto;

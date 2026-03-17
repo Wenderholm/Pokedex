@@ -11,7 +11,6 @@ export const FavouritesProvider = ({ children }) => {
   const [favourites, setFavourites] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // POBRANIE PRZY STARCIE
   useEffect(() => {
     const fetchFavourites = async () => {
       const res = await getFavourites();
@@ -22,17 +21,13 @@ export const FavouritesProvider = ({ children }) => {
     fetchFavourites();
   }, []);
 
-  // DODAJ / USUŃ
   const toggleFavourite = async (pokemon) => {
-    // sprawdzamy PO pokemonId ponieważ JSON-server nadaje własne ID
     const existing = favourites.find((fav) => fav.pokemonId === pokemon.id);
 
     if (existing) {
-      //  USUŃ
       await removeFavourite(existing.id); // JSON-server ID
       setFavourites((prev) => prev.filter((fav) => fav.id !== existing.id));
     } else {
-      //  DODAJ
       const res = await addFavourite({
         pokemonId: pokemon.id,
         name: pokemon.name,
@@ -49,7 +44,6 @@ export const FavouritesProvider = ({ children }) => {
     }
   };
 
-  //  SPRAWDZENIE SERCA - czy dany pokemon jest w ulubionych
   const isFavourite = (pokemonId) => {
     return favourites.some((fav) => fav.pokemonId === pokemonId);
   };

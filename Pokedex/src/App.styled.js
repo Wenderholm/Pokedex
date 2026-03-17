@@ -8,7 +8,6 @@ export const AppContainer = styled.div`
     background-color 0.3s ease,
     color 0.3s ease;
 
-  /* Responsive padding and layout */
   @media (max-width: 768px) {
     padding: 0;
   }

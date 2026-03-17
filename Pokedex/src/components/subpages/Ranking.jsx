@@ -34,7 +34,6 @@ const Ranking = () => {
   useEffect(() => {
     const fetchRanking = async () => {
       try {
-        // pobiera wszystkie pokiemony z walk
         const res = await getAllBattlePokemons();
         setPokemons(res.data);
       } catch (error) {
@@ -47,7 +46,6 @@ const Ranking = () => {
     fetchRanking();
   }, []);
 
-  // memoizacja wyniku sortowania, żeby nie sortować przy każdym renderze
   const sortedPokemons = useMemo(() => {
     return [...pokemons].sort((a, b) => {
       return b[SORT_OPTIONS[sortBy]] - a[SORT_OPTIONS[sortBy]];

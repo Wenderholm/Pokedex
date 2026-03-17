@@ -23,35 +23,30 @@ export const Button = styled.button`
     transform: translateY(-2px);
   }
 
-  /* Desktop large */
   @media (min-width: 1200px) {
     font-size: 16px;
     padding: 12px 30px;
     margin: 0 12px;
   }
 
-  /* Desktop standard */
   @media (min-width: 992px) and (max-width: 1199px) {
     font-size: 14px;
     padding: 10px 25px;
     margin: 0 8px;
   }
 
-  /* Tablet */
   @media (min-width: 768px) and (max-width: 991px) {
     font-size: 13px;
     padding: 8px 20px;
     margin: 0 5px;
   }
 
-  /* Mobile large */
   @media (min-width: 480px) and (max-width: 767px) {
     font-size: 12px;
     padding: 8px 15px;
     margin: 2px;
   }
 
-  /* Mobile small */
   @media (max-width: 479px) {
     font-size: 12px;
     padding: 10px 15px;

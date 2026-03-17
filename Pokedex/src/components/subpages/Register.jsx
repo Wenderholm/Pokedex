@@ -42,12 +42,6 @@ const Register = () => {
   const { enqueueSnackbar } = useSnackbar();
   const navigate = useNavigate();
 
-  // useForm → zarządza stanem formularza
-  // resolver: zodResolver(schema) → integracja z Zod, żeby walidować dane zgodnie
-  // z ustalonym schematem (np. email, password, min. długość itp.)
-  // register → przypisuje inputy formularza do React Hook Form
-  // handleSubmit → obsługuje submit i walidację
-  // errors → zawiera błędy walidacji, które możesz pokazać w UI
   const {
     register,
     handleSubmit,
@@ -59,7 +53,7 @@ const Register = () => {
   const onSubmit = async (data) => {
     try {
       const res = await fetch(
-        `http://localhost:3001/users?email=${data.email}`
+        `http://localhost:3001/users?email=${data.email}`,
       );
       const users = await res.json();
 

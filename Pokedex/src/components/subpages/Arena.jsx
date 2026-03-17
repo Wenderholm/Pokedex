@@ -7,6 +7,7 @@ import {
 } from "../../services/pokemonsApi";
 import PokemonCard from "../shared/PokemonCard";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   ArenaContainer,
   ArenaFightArea,
@@ -20,13 +21,15 @@ import {
   ExitArenaButton,
 } from "./Arena.styled";
 import { BattleResultModal } from "./BattleResultModal";
+import { redirect } from "react-router-dom";
 
 const Arena = () => {
   const { arena, removeFromArena, resetArena, updateArenaPokemons } =
     useArena();
   const { refreshPokemons } = usePokemons();
-  const [battleResult, setBattleResult] = useState(null); // { winner: pokemon, loser: pokemon }
+  const [battleResult, setBattleResult] = useState(null);
   const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
 
   const fight = async () => {
     const [p1, p2] = arena;
@@ -42,14 +45,12 @@ const Arena = () => {
     const winner = score1 > score2 ? p1 : p2;
     const loser = score1 > score2 ? p2 : p1;
 
-    // Ustawiamy wyniki walki
     setBattleResult({ winner, loser });
 
     await saveBattleResult(winner, true);
     await saveBattleResult(loser, false);
     await refreshPokemons();
 
-    // Aktualizujemy Pokémony w arenie z nowymi statystykami
     const updatedWinner = {
       ...winner,
       wins: (winner.wins || 0) + 1,
@@ -58,19 +59,16 @@ const Arena = () => {
     const updatedLoser = { ...loser, loses: (loser.loses || 0) + 1 };
     updateArenaPokemons([updatedWinner, updatedLoser]);
 
-    // Pokazujemy modal z wynikiem
     setTimeout(() => {
       setShowModal(true);
     }, 1000);
   };
 
   const saveBattleResult = async (pokemon, isWinner) => {
-    // sprawdzamy czy istnieje w JSON-server
     const res = await findPokemonByPokeApiId(pokemon.id);
     const existing = res.data[0];
 
     if (!existing) {
-      // CREATE
       await createPokemon({
         pokemonId: pokemon.id,
         name: pokemon.name,
@@ -157,6 +155,7 @@ const Arena = () => {
           onClick={() => {
             resetArena();
             resetBattle();
+            navigate("/");
           }}
         >
           🚪 Opuść arenę

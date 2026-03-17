@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import { Link as RouterLink } from "react-router-dom"; // import Link z react-router-dom
-import LogoutButton from "./LogoutButton";
+import { Link as RouterLink } from "react-router-dom";
 
 export const NavStyle = styled.nav`
   display: flex;
@@ -11,7 +10,6 @@ export const NavStyle = styled.nav`
   color: white;
   flex-wrap: wrap;
 
-  /* Mobile responsiveness */
   @media (max-width: 768px) {
     flex-direction: column;
     padding: 10px;
@@ -24,7 +22,6 @@ export const StyledLinkWrapper = styled.div`
   flex-wrap: wrap;
   gap: 5px;
 
-  /* Tablet and mobile */
   @media (max-width: 768px) {
     justify-content: center;
     width: 100%;
@@ -53,8 +50,6 @@ export const UserWrapper = styled.div`
   }
 `;
 
-// RouterLink = oryginalny <Link> z react-router-dom
-// StyledLink = Twój link z własnym stylem
 export const StyledLink = styled(RouterLink)`
   font-size: 14px;
   font-family: Arial, Helvetica, sans-serif;
@@ -77,26 +72,22 @@ export const StyledLink = styled(RouterLink)`
     transform: translateY(-2px);
   }
 
-  /* Desktop large */
   @media (min-width: 1200px) {
     font-size: 16px;
     padding: 12px 50px;
   }
 
-  /* Desktop standard */
   @media (min-width: 992px) and (max-width: 1199px) {
     font-size: 14px;
     padding: 10px 40px;
   }
 
-  /* Tablet */
   @media (min-width: 768px) and (max-width: 991px) {
     font-size: 13px;
     padding: 8px 30px;
     margin-left: 5px;
   }
 
-  /* Mobile large */
   @media (min-width: 480px) and (max-width: 767px) {
     font-size: 12px;
     padding: 8px 20px;
@@ -104,7 +95,6 @@ export const StyledLink = styled(RouterLink)`
     margin-left: 0;
   }
 
-  /* Mobile small */
   @media (max-width: 479px) {
     font-size: 12px;
     padding: 10px 15px;
@@ -139,7 +129,6 @@ export const PokemonLogo = styled.img`
   height: 70px;
   width: auto;
 
-  /* Responsive logo sizes */
   @media (min-width: 1200px) {
     height: 80px;
   }
