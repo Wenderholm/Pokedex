@@ -1,11 +1,10 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   getFavourites,
   addFavourite,
   removeFavourite,
 } from "../services/favouritesApi";
-
-const FavouritesContext = createContext(null);
+import { FavouritesContext } from "./favourites-context";
 
 export const FavouritesProvider = ({ children }) => {
   const [favourites, setFavourites] = useState([]);
@@ -61,5 +60,3 @@ export const FavouritesProvider = ({ children }) => {
     </FavouritesContext.Provider>
   );
 };
-
-export const useFavourites = () => useContext(FavouritesContext);

@@ -3,8 +3,8 @@ import PokemonCard from "../shared/PokemonCard";
 import Pagination from "../shared/Pagination";
 import LoadingMessage from "../shared/LoadingMessage";
 import { Grid } from "./Home.styled";
-import { usePokemons } from "../../context/PokemonsContext";
-import { useAuth } from "../../context/AuthContext";
+import { usePokemons } from "../../context/pokemons-context";
+import { useAuth } from "../../context/auth-context";
 import { WelcomeWrapper } from "./Home.styled";
 import { StyledInput } from "../forms/Form.styled";
 

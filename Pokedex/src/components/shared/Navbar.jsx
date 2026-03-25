@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { useAuth } from "../../context/AuthContext";
-import { ThemeContext } from "../../context/ThemeContext";
+import { useAuth } from "../../context/auth-context";
+import { ThemeContext } from "../../context/theme-context";
 import LogoutButton from "./LogoutButton";
 
 import Switch from "@mui/material/Switch";

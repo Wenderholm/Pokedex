@@ -5,7 +5,7 @@ import {
   updatePokemon,
 } from "../../services/pokemonsApi";
 import { useSnackbar } from "notistack";
-import { usePokemons } from "../../context/PokemonsContext";
+import { usePokemons } from "../../context/pokemons-context";
 import {
   Form,
   FormField,

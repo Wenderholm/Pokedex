@@ -4,7 +4,7 @@ import {
   createPokemon,
   getAllBattlePokemons,
 } from "../../services/pokemonsApi";
-import { usePokemons } from "../../context/PokemonsContext";
+import { usePokemons } from "../../context/pokemons-context";
 import { useSnackbar } from "notistack";
 import {
   ArrowButton,

@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
-import { useFavourites } from "../../context/FavouritesContext";
-import { useArena } from "../../context/ArenaContext";
-import { usePokemons } from "../../context/PokemonsContext";
+import { useFavourites } from "../../context/favourites-context";
+import { useArena } from "../../context/arena-context";
+import { usePokemons } from "../../context/pokemons-context";
 import PokemonCard from "../shared/PokemonCard.jsx";
 import LoadingMessage from "../shared/LoadingMessage";
 import {

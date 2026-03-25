@@ -1,6 +1,5 @@
-import { createContext, useContext, useState } from "react";
-
-const ArenaContext = createContext();
+import { useState } from "react";
+import { ArenaContext } from "./arena-context";
 
 export const ArenaProvider = ({ children }) => {
   const [arena, setArena] = useState([]);
@@ -25,7 +24,7 @@ export const ArenaProvider = ({ children }) => {
       prevArena.map((arenaPokemon) => {
         const updated = updatedPokemons.find((p) => p.id === arenaPokemon.id);
         return updated || arenaPokemon;
-      })
+      }),
     );
   };
 
@@ -46,5 +45,3 @@ export const ArenaProvider = ({ children }) => {
     </ArenaContext.Provider>
   );
 };
-
-export const useArena = () => useContext(ArenaContext);

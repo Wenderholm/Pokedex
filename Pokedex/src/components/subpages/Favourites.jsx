@@ -1,4 +1,4 @@
-import { useFavourites } from "../../context/FavouritesContext";
+import { useFavourites } from "../../context/favourites-context";
 import PokemonCard from "../shared/PokemonCard";
 import LoadingMessage from "../shared/LoadingMessage";
 import { Grid } from "./Home.styled";

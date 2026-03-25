@@ -1,5 +1,5 @@
-import { useArena } from "../../context/ArenaContext";
-import { usePokemons } from "../../context/PokemonsContext";
+import { useArena } from "../../context/arena-context";
+import { usePokemons } from "../../context/pokemons-context";
 import {
   findPokemonByPokeApiId,
   createPokemon,
@@ -21,7 +21,6 @@ import {
   ExitArenaButton,
 } from "./Arena.styled";
 import { BattleResultModal } from "./BattleResultModal";
-import { redirect } from "react-router-dom";
 
 const Arena = () => {
   const { arena, removeFromArena, resetArena, updateArenaPokemons } =
@@ -79,7 +78,6 @@ const Arena = () => {
         loses: isWinner ? 0 : 1,
       });
     } else {
-      // UPDATE
       await updatePokemon(existing.id, {
         ...existing,
         baseExperience: existing.baseExperience + (isWinner ? 10 : 0),

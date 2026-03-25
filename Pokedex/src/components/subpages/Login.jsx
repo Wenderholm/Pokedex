@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { useSnackbar } from "notistack";
 import { useNavigate, Link } from "react-router-dom";
-import { useAuth } from "../../context/AuthContext";
+import { useAuth } from "../../context/auth-context";
 import {
   FormContainer,
   FormTitle,
@@ -22,7 +22,7 @@ const Login = () => {
   const onSubmit = async (data) => {
     try {
       const res = await fetch(
-        `http://localhost:3001/users?email=${data.email}&password=${data.password}`
+        `http://localhost:3001/users?email=${data.email}&password=${data.password}`,
       );
       const users = await res.json();
 

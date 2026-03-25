@@ -23,6 +23,12 @@
       "name": "Darek",
       "email": "darek@wp.pl",
       "password": "19Wend!19"
+    },
+    {
+      "id": "4b9d",
+      "name": "Adam",
+      "email": "adam@wp.pl",
+      "password": "19Adam!88"
     }
   ],
   "favourites": [
@@ -49,18 +55,6 @@
       "baseExperience": 339,
       "wins": 10,
       "loses": 0
-    },
-    {
-      "id": "eb80",
-      "pokemonId": 1,
-      "name": "bulbasaur",
-      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
-      "height": 7,
-      "weight": 69,
-      "ability": "overgrow",
-      "baseExperience": 104,
-      "wins": 4,
-      "loses": 27
     }
   ],
   "pokemons": [
@@ -70,8 +64,8 @@
       "name": "blastoise",
       "weight": 111,
       "ability": "torrent",
-      "baseExperience": 339,
-      "wins": 10,
+      "baseExperience": 359,
+      "wins": 12,
       "loses": 0,
       "height": 100
     },
@@ -81,8 +75,8 @@
       "name": "ivysaur",
       "weight": 130,
       "ability": "overgrow",
-      "baseExperience": 362,
-      "wins": 22,
+      "baseExperience": 372,
+      "wins": 23,
       "loses": 8,
       "height": 120
     },
@@ -106,7 +100,7 @@
       "height": 10,
       "baseExperience": 208,
       "wins": 3,
-      "loses": 0
+      "loses": 2
     },
     {
       "id": "3b7f",
@@ -145,9 +139,9 @@
       "id": "6be9",
       "pokemonId": 1766954692019,
       "name": "Zosia",
-      "weight": "200",
-      "height": "150",
-      "baseExperience": "200010",
+      "weight": 200,
+      "height": 150,
+      "baseExperience": 1500,
       "imageId": 157,
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/157.png",
       "wins": 2,
@@ -253,7 +247,7 @@
       "height": 7,
       "baseExperience": 122,
       "wins": 5,
-      "loses": 1
+      "loses": 2
     },
     {
       "id": "ff34",

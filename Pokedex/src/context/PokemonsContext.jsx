@@ -1,8 +1,7 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { pokeApi } from "../services/pokeApi";
 import { getAllBattlePokemons } from "../services/pokemonsApi";
-
-const PokemonsContext = createContext();
+import { PokemonsContext } from "./pokemons-context";
 
 const TOTAL_POKEMONS = 150;
 
@@ -21,7 +20,6 @@ export const PokemonsProvider = ({ children }) => {
         getAllBattlePokemons(),
       ]);
 
-      // 🔹 API details
       const details = await Promise.all(
         apiRes.data.results.map((p) => pokeApi.get(p.url)),
       );
@@ -96,4 +94,3 @@ export const PokemonsProvider = ({ children }) => {
     </PokemonsContext.Provider>
   );
 };
-export const usePokemons = () => useContext(PokemonsContext);
