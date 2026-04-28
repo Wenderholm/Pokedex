@@ -42,11 +42,7 @@ const Home = () => {
 
       <Grid>
         {currentPokemons.map((pokemon) => (
-          <PokemonCard
-            key={pokemon.id}
-            pokemon={pokemon}
-            battleResult={null}
-          />
+          <PokemonCard key={pokemon.id} pokemon={pokemon} battleResult={null} />
         ))}
       </Grid>
 

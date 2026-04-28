@@ -3,11 +3,15 @@ import { useFavourites } from "../../context/favourites-context";
 import { useArena } from "../../context/arena-context";
 import { usePokemons } from "../../context/pokemons-context";
 import { useAuth } from "../../context/auth-context";
+import redHeart from "../../icons/redHeart.png";
+import greyHeart from "../../icons/greyHeart.png";
+import sword from "../../icons/sword.png";
 import PokemonCard from "../shared/PokemonCard.jsx";
 import LoadingMessage from "../shared/LoadingMessage";
 import {
   PokemonDetailsContainer,
   PokemonCardWrapper,
+  ScoreCard,
   PokemonCardButtonWrapper,
   HeartButton,
   SwordButton,
@@ -37,6 +41,12 @@ const PokemonDetails = () => {
     <>
       <PokemonDetailsContainer>
         <PokemonCardWrapper>
+          {user && (pokemon.wins > 0 || pokemon.loses > 0) && (
+            <ScoreCard>
+              {pokemon.wins ? <p>W: {pokemon.wins}</p> : <p>W: 0</p>}
+              {pokemon.loses ? <p>L: {pokemon.loses}</p> : <p>L: 0</p>}
+            </ScoreCard>
+          )}
           <div>
             <PokemonImg src={pokemon.image} alt={pokemon.name} />
           </div>
@@ -70,9 +80,10 @@ const PokemonDetails = () => {
                     $active={isFavourite(pokemon.id)}
                     onClick={() => toggleFavourite(pokemon)}
                   >
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-                    </svg>
+                    <img
+                      src={isFavourite(pokemon.id) ? redHeart : greyHeart}
+                      alt={isFavourite(pokemon.id) ? "Red heart" : "Grey heart"}
+                    />
                     {isFavourite(pokemon.id)
                       ? "Usuń z ulubionych"
                       : "Dodaj do ulubionych"}
@@ -83,9 +94,7 @@ const PokemonDetails = () => {
                     onClick={() => addToArena(pokemon)}
                     disabled={isInArena(pokemon.id) || arena.length >= 2}
                   >
-                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M20.71 5.63l-2.34-2.34a1 1 0 0 0-1.41 0l-3.12 3.12-1.41-1.42-1.42 1.42 1.41 1.41-6.6 6.6A2 2 0 0 0 5 16v3h3a2 2 0 0 0 1.42-.59l6.6-6.6 1.41 1.42 1.42-1.42-1.42-1.41 3.12-3.12a1 1 0 0 0 .16-1.65z" />
-                    </svg>
+                    <img src={sword} alt="Sword icon" />
                     {isInArena(pokemon.id) ? "Na arenie" : "Dodaj do areny"}
                     <span>({arena.length}/2)</span>
                   </SwordButton>

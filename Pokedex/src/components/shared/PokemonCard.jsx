@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/auth-context";
 
 import {
   Card,
@@ -13,6 +14,7 @@ import {
 
 const PokemonCard = ({ pokemon, battleResult }) => {
   const navigate = useNavigate();
+  const { user } = useAuth();
 
   const handleClick = () => {
     navigate(`/pokemon/${pokemon.id}`);
@@ -20,7 +22,7 @@ const PokemonCard = ({ pokemon, battleResult }) => {
 
   return (
     <Card onClick={handleClick} $pokemon={pokemon} $battleResult={battleResult}>
-      {(pokemon.wins > 0 || pokemon.loses > 0) && (
+      {user && (pokemon.wins > 0 || pokemon.loses > 0) && (
         <ScoreCard>
           {pokemon.wins ? <p>W: {pokemon.wins}</p> : <p>W: 0</p>}
           {pokemon.loses ? <p>L: {pokemon.loses}</p> : <p>L: 0</p>}

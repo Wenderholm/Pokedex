@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { useAuth } from "../../context/auth-context";
 import { ThemeContext } from "../../context/theme-context";
@@ -9,7 +8,6 @@ import Switch from "@mui/material/Switch";
 import {
   NavStyle,
   StyledLink,
-  DisabledLink,
   LinksContainer,
   LogoContainer,
   PokemonLogo,
@@ -44,18 +42,10 @@ const Navbar = () => {
             </StyledLinkWrapper>
           </>
         ) : (
-          <>
-            <StyledLinkWrapper>
-              <StyledLink to="/login">Logowanie</StyledLink>
-              <StyledLink to="/register">Rejestracja</StyledLink>
-            </StyledLinkWrapper>
-            <StyledLinkWrapper>
-              <DisabledLink>Ulubione</DisabledLink>
-              <DisabledLink>Arena</DisabledLink>
-              <DisabledLink>Ranking</DisabledLink>
-              <DisabledLink>Edycja</DisabledLink>
-            </StyledLinkWrapper>
-          </>
+          <StyledLinkWrapper>
+            <StyledLink to="/login">Logowanie</StyledLink>
+            <StyledLink to="/register">Rejestracja</StyledLink>
+          </StyledLinkWrapper>
         )}
       </LinksContainer>
     </NavStyle>

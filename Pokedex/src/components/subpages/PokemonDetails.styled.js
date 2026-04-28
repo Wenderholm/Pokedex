@@ -12,6 +12,7 @@ export const PokemonCardWrapper = styled.div`
   border-radius: 20px;
   display: flex;
   align-items: center;
+  position: relative;
   border: 1px solid #ccc;
   text-transform: uppercase;
   text-align: center;
@@ -35,6 +36,20 @@ export const PokemonCardWrapper = styled.div`
     align-items: stretch;
     gap: 10px;
   }
+`;
+
+export const ScoreCard = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 50px;
+  width: 50px;
+  border-top-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  color: white;
+  background-color: black;
+  font-size: 12px;
+  line-height: 0.5;
 `;
 
 export const PokemonImg = styled.img`
@@ -168,16 +183,19 @@ export const HeartButton = styled.button`
   background: ${(props) => (props.$active ? "#fce4ec" : "#f5f5f5")};
   color: ${(props) => (props.$active ? "#e53935" : "#555")};
 
-  svg {
+  img {
     width: 22px;
     height: 22px;
-    fill: ${(props) => (props.$active ? "#e53935" : "#aaa")};
-    transition: fill 0.2s ease;
+    transition: transform 0.2s ease;
     flex-shrink: 0;
   }
 
   &:hover {
     background: ${(props) => (props.$active ? "#f8bbd0" : "#e0e0e0")};
+  }
+
+  &:hover img {
+    transform: scale(1.07);
   }
 `;
 
@@ -194,11 +212,10 @@ export const SwordButton = styled.button`
   background: ${(props) => (props.$active ? "#e3f2fd" : "#f5f5f5")};
   color: ${(props) => (props.$active ? "#1565c0" : "#555")};
 
-  svg {
+  img {
     width: 22px;
     height: 22px;
-    fill: ${(props) => (props.$active ? "#1565c0" : "#aaa")};
-    transition: fill 0.2s ease;
+    transition: transform 0.2s ease;
     flex-shrink: 0;
   }
 
@@ -209,12 +226,16 @@ export const SwordButton = styled.button`
     color: #999;
     opacity: 0.6;
 
-    svg {
-      fill: #bbb;
+    img {
+      filter: grayscale(1);
     }
   }
 
   &:hover:not(:disabled) {
     background: ${(props) => (props.$active ? "#bbdefb" : "#e0e0e0")};
+  }
+
+  &:hover:not(:disabled) img {
+    transform: scale(1.07);
   }
 `;
