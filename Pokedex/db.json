@@ -43,6 +43,18 @@
       "baseExperience": 63,
       "wins": 0,
       "loses": 5
+    },
+    {
+      "id": "1b50",
+      "pokemonId": 3,
+      "name": "venusaur",
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png",
+      "height": 20,
+      "weight": 1000,
+      "ability": "overgrow",
+      "baseExperience": 346,
+      "wins": 11,
+      "loses": 0
     }
   ],
   "pokemons": [

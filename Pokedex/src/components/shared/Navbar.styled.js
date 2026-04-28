@@ -67,20 +67,6 @@ export const StyledLink = styled(RouterLink)`
   white-space: nowrap;
   text-align: center;
 
-  ${(props) =>
-    props.$disabled &&
-    `
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-    width: 0;
-    height: 0;
-    overflow: hidden;
-    padding: 0;
-    margin: 0;
-    border: 0;
-  `}
-
   &:hover {
     color: #ffcb05;
     background-color: #1976d2;

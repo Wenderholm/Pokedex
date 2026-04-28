@@ -180,7 +180,7 @@ export const HeartButton = styled.button`
   border: 2px solid ${(props) => (props.$active ? "#e53935" : "#aaa")};
   cursor: pointer;
   transition: all 0.2s ease;
-  background: ${(props) => (props.$active ? "#fce4ec" : "#f5f5f5")};
+  background: white;
   color: ${(props) => (props.$active ? "#e53935" : "#555")};
 
   img {
@@ -188,14 +188,6 @@ export const HeartButton = styled.button`
     height: 22px;
     transition: transform 0.2s ease;
     flex-shrink: 0;
-  }
-
-  &:hover {
-    background: ${(props) => (props.$active ? "#f8bbd0" : "#e0e0e0")};
-  }
-
-  &:hover img {
-    transform: scale(1.07);
   }
 `;
 
@@ -209,7 +201,7 @@ export const SwordButton = styled.button`
   border: 2px solid ${(props) => (props.$active ? "#1565c0" : "#aaa")};
   cursor: pointer;
   transition: all 0.2s ease;
-  background: ${(props) => (props.$active ? "#e3f2fd" : "#f5f5f5")};
+  background: white;
   color: ${(props) => (props.$active ? "#1565c0" : "#555")};
 
   img {
@@ -229,13 +221,5 @@ export const SwordButton = styled.button`
     img {
       filter: grayscale(1);
     }
-  }
-
-  &:hover:not(:disabled) {
-    background: ${(props) => (props.$active ? "#bbdefb" : "#e0e0e0")};
-  }
-
-  &:hover:not(:disabled) img {
-    transform: scale(1.07);
   }
 `;

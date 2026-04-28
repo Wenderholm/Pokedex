@@ -3,9 +3,9 @@ import { useFavourites } from "../../context/favourites-context";
 import { useArena } from "../../context/arena-context";
 import { usePokemons } from "../../context/pokemons-context";
 import { useAuth } from "../../context/auth-context";
-import redHeart from "../../icons/redHeart.png";
-import greyHeart from "../../icons/greyHeart.png";
-import sword from "../../icons/sword.png";
+import redHeart from "../../icons/redHeart.jpg";
+import greyHeart from "../../icons/greyHeart.jpg";
+import sword from "../../icons/sword.jpg";
 import PokemonCard from "../shared/PokemonCard.jsx";
 import LoadingMessage from "../shared/LoadingMessage";
 import {
