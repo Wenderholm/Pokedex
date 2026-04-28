@@ -4,14 +4,11 @@ import Pagination from "../shared/Pagination";
 import LoadingMessage from "../shared/LoadingMessage";
 import { Grid } from "./Home.styled";
 import { usePokemons } from "../../context/pokemons-context";
-import { useAuth } from "../../context/auth-context";
-import { WelcomeWrapper } from "./Home.styled";
 import { StyledInput } from "../forms/Form.styled";
 
 const POKEMONS_PER_PAGE = 15;
 
 const Home = () => {
-  const { user } = useAuth();
   const { pokemons, loading, error } = usePokemons();
   const [currentPage, setCurrentPage] = useState(1);
   const [search, setSearch] = useState("");
@@ -32,41 +29,32 @@ const Home = () => {
 
   return (
     <div>
-      {user ? (
-        <>
-          <h1>Pokemony</h1>
-          <StyledInput
-            type="text"
-            placeholder="Szukaj Pokémona..."
-            value={search}
-            onChange={(e) => {
-              setSearch(e.target.value);
-              setCurrentPage(1);
-            }}
-          />
+      <h1>Pokemony</h1>
+      <StyledInput
+        type="text"
+        placeholder="Szukaj Pokémona..."
+        value={search}
+        onChange={(e) => {
+          setSearch(e.target.value);
+          setCurrentPage(1);
+        }}
+      />
 
-          <Grid>
-            {currentPokemons.map((pokemon) => (
-              <PokemonCard
-                key={pokemon.id}
-                pokemon={pokemon}
-                battleResult={null}
-              />
-            ))}
-          </Grid>
-
-          <Pagination
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onPageChange={setCurrentPage}
+      <Grid>
+        {currentPokemons.map((pokemon) => (
+          <PokemonCard
+            key={pokemon.id}
+            pokemon={pokemon}
+            battleResult={null}
           />
-        </>
-      ) : (
-        <WelcomeWrapper>
-          <h1>Witaj w Pokedex!</h1>
-          <p>Musisz się zalogować albo zarejestrować, aby zobaczyć pokemony.</p>
-        </WelcomeWrapper>
-      )}
+        ))}
+      </Grid>
+
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={setCurrentPage}
+      />
     </div>
   );
 };

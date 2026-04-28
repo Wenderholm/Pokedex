@@ -9,6 +9,7 @@ import Switch from "@mui/material/Switch";
 import {
   NavStyle,
   StyledLink,
+  DisabledLink,
   LinksContainer,
   LogoContainer,
   PokemonLogo,
@@ -43,10 +44,18 @@ const Navbar = () => {
             </StyledLinkWrapper>
           </>
         ) : (
-          <StyledLinkWrapper>
-            <StyledLink to="/login">Logowanie</StyledLink>
-            <StyledLink to="/register">Rejestracja</StyledLink>
-          </StyledLinkWrapper>
+          <>
+            <StyledLinkWrapper>
+              <StyledLink to="/login">Logowanie</StyledLink>
+              <StyledLink to="/register">Rejestracja</StyledLink>
+            </StyledLinkWrapper>
+            <StyledLinkWrapper>
+              <DisabledLink>Ulubione</DisabledLink>
+              <DisabledLink>Arena</DisabledLink>
+              <DisabledLink>Ranking</DisabledLink>
+              <DisabledLink>Edycja</DisabledLink>
+            </StyledLinkWrapper>
+          </>
         )}
       </LinksContainer>
     </NavStyle>

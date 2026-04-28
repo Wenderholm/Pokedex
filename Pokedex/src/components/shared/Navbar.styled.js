@@ -141,3 +141,53 @@ export const PokemonLogo = styled.img`
     height: 50px;
   }
 `;
+
+export const DisabledLink = styled.span`
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  margin-left: 10px;
+  background-color: #555;
+  color: #888;
+  padding: 10px 45px;
+  border-radius: 5px;
+  text-decoration: none;
+  white-space: nowrap;
+  text-align: center;
+  display: inline-block;
+  cursor: not-allowed;
+  opacity: 0.45;
+  pointer-events: none;
+  user-select: none;
+
+  @media (min-width: 1200px) {
+    font-size: 16px;
+    padding: 12px 50px;
+  }
+
+  @media (min-width: 992px) and (max-width: 1199px) {
+    font-size: 14px;
+    padding: 10px 40px;
+  }
+
+  @media (min-width: 768px) and (max-width: 991px) {
+    font-size: 13px;
+    padding: 8px 30px;
+    margin-left: 5px;
+  }
+
+  @media (min-width: 480px) and (max-width: 767px) {
+    font-size: 12px;
+    padding: 8px 20px;
+    margin: 2px;
+    margin-left: 0;
+  }
+
+  @media (max-width: 479px) {
+    font-size: 12px;
+    padding: 10px 15px;
+    margin: 3px 0;
+    margin-left: 0;
+    width: 140px;
+  }
+`;

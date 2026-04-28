@@ -153,34 +153,68 @@ export const PokemonCardButtonWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
+`;
 
-  button {
-    padding: 10px;
-    font-size: 14px;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    transition: all 0.2s ease;
+export const HeartButton = styled.button`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  font-size: 14px;
+  border-radius: 10px;
+  border: 2px solid ${(props) => (props.$active ? "#e53935" : "#aaa")};
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: ${(props) => (props.$active ? "#fce4ec" : "#f5f5f5")};
+  color: ${(props) => (props.$active ? "#e53935" : "#555")};
+
+  svg {
+    width: 22px;
+    height: 22px;
+    fill: ${(props) => (props.$active ? "#e53935" : "#aaa")};
+    transition: fill 0.2s ease;
+    flex-shrink: 0;
   }
 
-  button:first-child {
-    background: #959293ff;
+  &:hover {
+    background: ${(props) => (props.$active ? "#f8bbd0" : "#e0e0e0")};
+  }
+`;
+
+export const SwordButton = styled.button`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  font-size: 14px;
+  border-radius: 10px;
+  border: 2px solid ${(props) => (props.$active ? "#1565c0" : "#aaa")};
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: ${(props) => (props.$active ? "#e3f2fd" : "#f5f5f5")};
+  color: ${(props) => (props.$active ? "#1565c0" : "#555")};
+
+  svg {
+    width: 22px;
+    height: 22px;
+    fill: ${(props) => (props.$active ? "#1565c0" : "#aaa")};
+    transition: fill 0.2s ease;
+    flex-shrink: 0;
   }
 
-  button:first-child:hover {
-    background: #faf0f2ff;
-  }
-
-  button:last-child {
-    background: #e8edff;
-  }
-
-  button:last-child:hover {
-    background: #86878bff;
-  }
-
-  button:disabled {
+  &:disabled {
     background: #ddd;
     cursor: not-allowed;
+    border-color: #ccc;
+    color: #999;
+    opacity: 0.6;
+
+    svg {
+      fill: #bbb;
+    }
+  }
+
+  &:hover:not(:disabled) {
+    background: ${(props) => (props.$active ? "#bbdefb" : "#e0e0e0")};
   }
 `;
