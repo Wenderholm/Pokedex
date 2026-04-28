@@ -50,6 +50,8 @@ const AppRouter = () => {
         path="/edit/:id"
         element={user ? <EditPokemon /> : <Navigate to="/login" />}
       />
+
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 };

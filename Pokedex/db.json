@@ -55,6 +55,18 @@
       "baseExperience": 346,
       "wins": 11,
       "loses": 0
+    },
+    {
+      "id": "b52e",
+      "pokemonId": 68,
+      "name": "machamp",
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/68.png",
+      "height": 16,
+      "weight": 1300,
+      "ability": "guts",
+      "baseExperience": 227,
+      "wins": 0,
+      "loses": 0
     }
   ],
   "pokemons": [
@@ -120,8 +132,8 @@
       "weight": 1000,
       "ability": "overgrow",
       "height": 20,
-      "baseExperience": 346,
-      "wins": 11,
+      "baseExperience": 356,
+      "wins": 12,
       "loses": 0
     },
     {
@@ -300,6 +312,16 @@
       "baseExperience": 218,
       "wins": 0,
       "loses": 3
+    },
+    {
+      "id": "4d90",
+      "pokemonId": 68,
+      "name": "machamp",
+      "weight": 1300,
+      "height": 16,
+      "baseExperience": 227,
+      "wins": 0,
+      "loses": 1
     }
   ]
 }
