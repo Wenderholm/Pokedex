@@ -1,12 +1,9 @@
 import { useArena } from "../../context/arena-context";
 import { usePokemons } from "../../context/pokemons-context";
-import {
-  findPokemonByPokeApiId,
-  createPokemon,
-  updatePokemon,
-} from "../../services/pokemonsApi";
+import { upsertPokemonByPokemonId } from "../../services/pokemonsApi";
 import PokemonCard from "../shared/PokemonCard";
 import { useState } from "react";
+import { useSnackbar } from "notistack";
 import { useNavigate } from "react-router-dom";
 import {
   ArenaContainer,
@@ -26,6 +23,7 @@ const Arena = () => {
   const { arena, removeFromArena, resetArena, updateArenaPokemons } =
     useArena();
   const { refreshPokemons } = usePokemons();
+  const { enqueueSnackbar } = useSnackbar();
   const [battleResult, setBattleResult] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
@@ -37,7 +35,9 @@ const Arena = () => {
     const score2 = p2.baseExperience * p2.weight;
 
     if (score1 === score2) {
-      alert("Remis!");
+      enqueueSnackbar("Remis! Żaden pokémon nie otrzymuje punktów.", {
+        variant: "info",
+      });
       return;
     }
 
@@ -64,27 +64,17 @@ const Arena = () => {
   };
 
   const saveBattleResult = async (pokemon, isWinner) => {
-    const res = await findPokemonByPokeApiId(pokemon.id);
-    const existing = res.data[0];
-
-    if (!existing) {
-      await createPokemon({
-        pokemonId: pokemon.id,
-        name: pokemon.name,
-        weight: pokemon.weight,
-        height: pokemon.height,
-        baseExperience: pokemon.baseExperience + (isWinner ? 10 : 0),
-        wins: isWinner ? 1 : 0,
-        loses: isWinner ? 0 : 1,
-      });
-    } else {
-      await updatePokemon(existing.id, {
-        ...existing,
-        baseExperience: existing.baseExperience + (isWinner ? 10 : 0),
-        wins: existing.wins + (isWinner ? 1 : 0),
-        loses: existing.loses + (isWinner ? 0 : 1),
-      });
-    }
+    await upsertPokemonByPokemonId(pokemon.id, {
+      name: pokemon.name,
+      image: pokemon.image,
+      weight: pokemon.weight,
+      height: pokemon.height,
+      ability: pokemon.ability,
+      baseExperience: pokemon.baseExperience + (isWinner ? 10 : 0),
+      wins: (pokemon.wins || 0) + (isWinner ? 1 : 0),
+      loses: (pokemon.loses || 0) + (isWinner ? 0 : 1),
+      isFavorite: pokemon.isFavorite || false,
+    });
   };
 
   const resetBattle = () => {

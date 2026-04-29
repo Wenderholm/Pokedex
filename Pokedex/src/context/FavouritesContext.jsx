@@ -1,50 +1,36 @@
-import { useEffect, useState } from "react";
-import {
-  getFavourites,
-  addFavourite,
-  removeFavourite,
-} from "../services/favouritesApi";
+import { useMemo } from "react";
+import { usePokemons } from "./pokemons-context";
+import { upsertPokemonByPokemonId } from "../services/pokemonsApi";
 import { FavouritesContext } from "./favourites-context";
 
 export const FavouritesProvider = ({ children }) => {
-  const [favourites, setFavourites] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const { pokemons, loading, updatePokemonLocal } = usePokemons();
 
-  useEffect(() => {
-    const fetchFavourites = async () => {
-      const res = await getFavourites();
-      setFavourites(res.data);
-      setLoading(false);
-    };
-
-    fetchFavourites();
-  }, []);
+  const favourites = useMemo(
+    () => pokemons.filter((pokemon) => pokemon.isFavorite),
+    [pokemons],
+  );
 
   const toggleFavourite = async (pokemon) => {
-    const existing = favourites.find((fav) => fav.pokemonId === pokemon.id);
+    const nextIsFavorite = !pokemon.isFavorite;
 
-    if (existing) {
-      await removeFavourite(existing.id); // JSON-server ID
-      setFavourites((prev) => prev.filter((fav) => fav.id !== existing.id));
-    } else {
-      const res = await addFavourite({
-        pokemonId: pokemon.id,
-        name: pokemon.name,
-        image: pokemon.image,
-        height: pokemon.height,
-        weight: pokemon.weight,
-        ability: pokemon.ability,
-        baseExperience: pokemon.baseExperience,
-        wins: pokemon.wins || 0,
-        loses: pokemon.loses || 0,
-      });
+    updatePokemonLocal(pokemon.id, { isFavorite: nextIsFavorite });
 
-      setFavourites((prev) => [...prev, res.data]);
-    }
+    await upsertPokemonByPokemonId(pokemon.id, {
+      name: pokemon.name,
+      image: pokemon.image,
+      height: pokemon.height,
+      weight: pokemon.weight,
+      ability: pokemon.ability,
+      baseExperience: pokemon.baseExperience,
+      wins: pokemon.wins || 0,
+      loses: pokemon.loses || 0,
+      isFavorite: nextIsFavorite,
+    });
   };
 
   const isFavourite = (pokemonId) => {
-    return favourites.some((fav) => fav.pokemonId === pokemonId);
+    return favourites.some((fav) => fav.id === pokemonId);
   };
 
   return (

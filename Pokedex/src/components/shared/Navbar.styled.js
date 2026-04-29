@@ -6,8 +6,9 @@ export const NavStyle = styled.nav`
   align-items: center;
   justify-content: space-between;
   padding: 10px 20px;
-  background-color: #292f33;
-  color: white;
+  background-color: ${({ theme }) =>
+    theme.background === "#121212" ? "#1f252a" : "#e8edf2"};
+  color: ${({ theme }) => theme.text};
   flex-wrap: wrap;
 
   @media (max-width: 768px) {
@@ -51,13 +52,20 @@ export const UserWrapper = styled.div`
   }
 `;
 
+export const ThemeModeLabel = styled.span`
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+`;
+
 export const StyledLink = styled(RouterLink)`
   font-size: 14px;
   font-family: Arial, Helvetica, sans-serif;
   text-transform: uppercase;
   margin-left: 10px;
-  background-color: #2196f3;
-  color: white;
+  background-color: ${({ theme }) =>
+    theme.background === "#121212" ? "#1976d2" : "#2196f3"};
+  color: #fff;
   border: none;
   cursor: pointer;
   padding: 10px 45px;

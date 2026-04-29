@@ -1,6 +1,7 @@
-import { useEffect, useState, useMemo } from "react";
-import { getAllBattlePokemons } from "../../services/pokemonsApi";
+import { useMemo, useState } from "react";
 import LoadingMessage from "../shared/LoadingMessage";
+import { usePokemons } from "../../context/pokemons-context";
+import Pagination from "../shared/Pagination";
 import {
   Container,
   Title,
@@ -26,31 +27,28 @@ const SORT_OPTIONS = {
   wins: "wins",
 };
 
+const POKEMONS_PER_PAGE = 10;
+
 const Ranking = () => {
-  const [pokemons, setPokemons] = useState([]);
+  const { pokemons, loading } = usePokemons();
   const [sortBy, setSortBy] = useState("experience");
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchRanking = async () => {
-      try {
-        const res = await getAllBattlePokemons();
-        setPokemons(res.data);
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchRanking();
-  }, []);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const sortedPokemons = useMemo(() => {
     return [...pokemons].sort((a, b) => {
       return b[SORT_OPTIONS[sortBy]] - a[SORT_OPTIONS[sortBy]];
     });
   }, [pokemons, sortBy]);
+
+  const totalPages = Math.max(
+    1,
+    Math.ceil(sortedPokemons.length / POKEMONS_PER_PAGE),
+  );
+  const startIndex = (currentPage - 1) * POKEMONS_PER_PAGE;
+  const currentPokemons = sortedPokemons.slice(
+    startIndex,
+    startIndex + POKEMONS_PER_PAGE,
+  );
 
   if (loading) return <LoadingMessage>Ładowanie rankingu...</LoadingMessage>;
 
@@ -60,7 +58,13 @@ const Ranking = () => {
 
       <SortContainer>
         <SortLabel>Sortuj według:</SortLabel>
-        <SortSelect value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+        <SortSelect
+          value={sortBy}
+          onChange={(e) => {
+            setSortBy(e.target.value);
+            setCurrentPage(1);
+          }}
+        >
           <option value="experience">Experience</option>
           <option value="weight">Weight</option>
           <option value="height">Height</option>
@@ -69,9 +73,9 @@ const Ranking = () => {
       </SortContainer>
 
       <PokemonList>
-        {sortedPokemons.map((pokemon, index) => (
+        {currentPokemons.map((pokemon, index) => (
           <PokemonCard key={pokemon.id}>
-            <RankNumber>{index + 1}.</RankNumber>
+            <RankNumber>{startIndex + index + 1}.</RankNumber>
 
             <PokemonImage
               src={
@@ -96,6 +100,12 @@ const Ranking = () => {
           </PokemonCard>
         ))}
       </PokemonList>
+
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={setCurrentPage}
+      />
     </Container>
   );
 };

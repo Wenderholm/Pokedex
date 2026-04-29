@@ -1,7 +1,10 @@
 import styled from "styled-components";
 
 export const Card = styled.div`
-  background: linear-gradient(to left top, #cdd7dd, #fbfbfb, #cdd7dd);
+  background: ${({ theme }) =>
+    theme.background === "#121212"
+      ? "linear-gradient(to left top, #202427, #2a2f34, #202427)"
+      : "linear-gradient(to left top, #cdd7dd, #fbfbfb, #cdd7dd)"};
   border-radius: 20px;
   padding: 24px;
   text-align: center;
@@ -60,7 +63,7 @@ export const Name = styled.h2`
   margin: 8px 0 20px;
   font-size: 26px;
   font-weight: 700;
-  color: #2d2d2d;
+  color: ${({ theme }) => theme.text};
   text-transform: capitalize;
 `;
 
@@ -78,11 +81,11 @@ export const Stat = styled.div`
 
 export const StatValue = styled.span`
   font-size: 14px;
-  color: #333;
+  color: ${({ theme }) => theme.text};
 `;
 
 export const StatLabel = styled.span`
   font-size: 16px;
   font-weight: 700;
-  color: #000;
+  color: ${({ theme }) => theme.text};
 `;

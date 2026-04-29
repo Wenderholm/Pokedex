@@ -5,6 +5,7 @@ export const Grid = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
   gap: 16px;
   margin-top: 20px;
+  padding: 0 40px;
 `;
 export const WelcomeWrapper = styled.div`
   text-align: center;

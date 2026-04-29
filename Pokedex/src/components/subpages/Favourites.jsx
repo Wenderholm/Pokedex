@@ -16,20 +16,10 @@ const Favourites = () => {
     <div>
       <h1>Ulubione Pokémony</h1>
       <Grid>
-        {favourites.map((favPokemon) => (
+        {favourites.map((pokemon) => (
           <PokemonCard
-            key={favPokemon.id} // key from JSON server ID
-            pokemon={{
-              id: favPokemon.pokemonId,
-              name: favPokemon.name,
-              image: favPokemon.image,
-              height: favPokemon.height,
-              weight: favPokemon.weight,
-              ability: favPokemon.ability,
-              baseExperience: favPokemon.baseExperience,
-              wins: favPokemon.wins || 0,
-              loses: favPokemon.loses || 0,
-            }}
+            key={pokemon.id}
+            pokemon={pokemon}
             battleResult={null}
           />
         ))}

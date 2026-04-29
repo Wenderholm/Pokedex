@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
-import { getAllBattlePokemons } from "../../services/pokemonsApi";
+import { useState } from "react";
+import { usePokemons } from "../../context/pokemons-context";
+import Pagination from "../shared/Pagination";
 import {
   Container,
   Title,
@@ -18,26 +18,21 @@ import {
   EmptyMessage,
 } from "./Edit.styled";
 
+const POKEMONS_PER_PAGE = 10;
+
 const Edit = () => {
-  const location = useLocation();
-  const [pokemons, setPokemons] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const { pokemons, loading } = usePokemons();
+  const [currentPage, setCurrentPage] = useState(1);
 
-  useEffect(() => {
-    const fetchPokemons = async () => {
-      setLoading(true);
-      try {
-        const response = await getAllBattlePokemons();
-        setPokemons(response.data);
-      } catch (error) {
-        console.error("Błąd pobierania pokemonów:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchPokemons();
-  }, [location.key, location.search, location.state]);
+  const totalPages = Math.max(
+    1,
+    Math.ceil(pokemons.length / POKEMONS_PER_PAGE),
+  );
+  const startIndex = (currentPage - 1) * POKEMONS_PER_PAGE;
+  const currentPokemons = pokemons.slice(
+    startIndex,
+    startIndex + POKEMONS_PER_PAGE,
+  );
 
   if (loading) return <div>Ładowanie pokemonów...</div>;
 
@@ -52,9 +47,9 @@ const Edit = () => {
       <Subtitle>Lista dostępnych pokemonów</Subtitle>
 
       <PokemonGrid>
-        {pokemons.map((pokemon, index) => (
+        {currentPokemons.map((pokemon, index) => (
           <PokemonCard key={pokemon.id}>
-            <PokemonNumber>#{index + 1}</PokemonNumber>
+            <PokemonNumber>#{startIndex + index + 1}</PokemonNumber>
 
             <PokemonImage
               src={
@@ -78,6 +73,12 @@ const Edit = () => {
           </PokemonCard>
         ))}
       </PokemonGrid>
+
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={setCurrentPage}
+      />
 
       {pokemons.length === 0 && (
         <EmptyMessage>

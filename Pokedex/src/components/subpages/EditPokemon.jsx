@@ -1,8 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import {
-  getBattlePokemonById,
-  updatePokemon,
+  upsertPokemonByPokemonId,
 } from "../../services/pokemonsApi";
 import { useSnackbar } from "notistack";
 import { usePokemons } from "../../context/pokemons-context";
@@ -16,9 +15,10 @@ import {
 
 const EditPokemon = () => {
   const { id } = useParams();
+  const pokemonId = Number(id);
   const navigate = useNavigate();
   const { enqueueSnackbar } = useSnackbar();
-  const { refreshPokemons } = usePokemons();
+  const { getPokemonById, refreshPokemons } = usePokemons();
   const [pokemon, setPokemon] = useState(null);
   const [formData, setFormData] = useState({
     weight: "",
@@ -36,12 +36,20 @@ const EditPokemon = () => {
 
     const fetchPokemon = async () => {
       try {
-        const response = await getBattlePokemonById(id);
-        setPokemon(response.data);
+        const selectedPokemon = getPokemonById(id);
+        if (!selectedPokemon) {
+          enqueueSnackbar("Nie znaleziono pokemona do edycji", {
+            variant: "error",
+          });
+          navigate("/edit");
+          return;
+        }
+
+        setPokemon(selectedPokemon);
         setFormData({
-          weight: String(response.data.weight ?? ""),
-          height: String(response.data.height ?? ""),
-          baseExperience: String(response.data.baseExperience ?? ""),
+          weight: String(selectedPokemon.weight ?? ""),
+          height: String(selectedPokemon.height ?? ""),
+          baseExperience: String(selectedPokemon.baseExperience ?? ""),
         });
       } catch (error) {
         console.error("Blad pobierania pokemona:", error);
@@ -53,7 +61,7 @@ const EditPokemon = () => {
     };
 
     fetchPokemon();
-  }, [enqueueSnackbar, id, navigate]);
+  }, [enqueueSnackbar, getPokemonById, id, navigate]);
 
   const onChangeField = (e) => {
     const { name, value } = e.target;
@@ -91,39 +99,31 @@ const EditPokemon = () => {
     }
 
     try {
-      await updatePokemon(id, updatedData);
+      await upsertPokemonByPokemonId(pokemonId, {
+        name: pokemon.name,
+        image: pokemon.image,
+        ability: pokemon.ability,
+        wins: pokemon.wins || 0,
+        loses: pokemon.loses || 0,
+        isFavorite: pokemon.isFavorite || false,
+        ...updatedData,
+      });
 
-      const verifyResponse = await getBattlePokemonById(id);
-      const verifiedPokemon = verifyResponse.data;
-
-      const weightSaved = verifiedPokemon.weight === updatedData.weight;
-      const heightSaved = verifiedPokemon.height === updatedData.height;
-      const baseExperienceSaved =
-        verifiedPokemon.baseExperience === updatedData.baseExperience;
-
-      if (!weightSaved || !heightSaved || !baseExperienceSaved) {
-        enqueueSnackbar(
-          `Zapis niezgodny. Wyslano wage: ${updatedData.weight}, zapisano: ${verifiedPokemon.weight}`,
-          {
-            variant: "error",
-          },
-        );
-        return;
-      }
-
-      setPokemon(verifiedPokemon);
       await refreshPokemons();
 
+      const refreshedPokemon = getPokemonById(id);
+      if (refreshedPokemon) {
+        setPokemon(refreshedPokemon);
+      }
+
       enqueueSnackbar(
-        `Zmieniono ${verifiedPokemon.name}. Nowa waga: ${verifiedPokemon.weight}`,
+        `Zmieniono ${pokemon.name}. Nowa waga: ${updatedData.weight}`,
         {
           variant: "success",
         },
       );
 
-      navigate(`/edit?updatedAt=${Date.now()}`, {
-        state: { updatedAt: Date.now() },
-      });
+      navigate("/edit");
     } catch (error) {
       console.error("Blad zapisu pokemona:", error);
       enqueueSnackbar("Nie udalo sie zapisac zmian", {

@@ -1,24 +1,30 @@
+import {
+  PaginationWrapper,
+  PaginationButton,
+  PaginationInfo,
+} from "./Pagination.styled";
+
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   return (
-    <div style={{ marginTop: "20px" }}>
-      <button
+    <PaginationWrapper>
+      <PaginationButton
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
       >
         ◀ Prev
-      </button>
+      </PaginationButton>
 
-      <span style={{ margin: "0 10px" }}>
+      <PaginationInfo>
         Page {currentPage} / {totalPages}
-      </span>
+      </PaginationInfo>
 
-      <button
+      <PaginationButton
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
       >
         Next ▶
-      </button>
-    </div>
+      </PaginationButton>
+    </PaginationWrapper>
   );
 };
 

@@ -31,44 +31,6 @@
       "password": "19Adam!88"
     }
   ],
-  "favourites": [
-    {
-      "id": "7bf9",
-      "pokemonId": 7,
-      "name": "squirtle",
-      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
-      "height": 5,
-      "weight": 90,
-      "ability": "torrent",
-      "baseExperience": 63,
-      "wins": 0,
-      "loses": 5
-    },
-    {
-      "id": "1b50",
-      "pokemonId": 3,
-      "name": "venusaur",
-      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png",
-      "height": 20,
-      "weight": 1000,
-      "ability": "overgrow",
-      "baseExperience": 346,
-      "wins": 11,
-      "loses": 0
-    },
-    {
-      "id": "b52e",
-      "pokemonId": 68,
-      "name": "machamp",
-      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/68.png",
-      "height": 16,
-      "weight": 1300,
-      "ability": "guts",
-      "baseExperience": 227,
-      "wins": 0,
-      "loses": 0
-    }
-  ],
   "pokemons": [
     {
       "id": "d897",
@@ -79,7 +41,8 @@
       "baseExperience": 359,
       "wins": 12,
       "loses": 0,
-      "height": 100
+      "height": 100,
+      "isFavorite": false
     },
     {
       "id": "9ed6",
@@ -90,7 +53,8 @@
       "baseExperience": 372,
       "wins": 23,
       "loses": 8,
-      "height": 120
+      "height": 120,
+      "isFavorite": false
     },
     {
       "id": "f716",
@@ -101,7 +65,8 @@
       "height": 7,
       "baseExperience": 104,
       "wins": 4,
-      "loses": 27
+      "loses": 27,
+      "isFavorite": false
     },
     {
       "id": "71c9",
@@ -112,7 +77,8 @@
       "height": 10,
       "baseExperience": 208,
       "wins": 3,
-      "loses": 2
+      "loses": 2,
+      "isFavorite": false
     },
     {
       "id": "3b7f",
@@ -123,7 +89,8 @@
       "height": 7,
       "baseExperience": 82,
       "wins": 1,
-      "loses": 3
+      "loses": 3,
+      "isFavorite": false
     },
     {
       "id": "6fcb",
@@ -132,9 +99,11 @@
       "weight": 1000,
       "ability": "overgrow",
       "height": 20,
-      "baseExperience": 356,
-      "wins": 12,
-      "loses": 0
+      "baseExperience": 366,
+      "wins": 13,
+      "loses": 0,
+      "isFavorite": true,
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png"
     },
     {
       "id": "8675",
@@ -145,7 +114,8 @@
       "height": 5,
       "baseExperience": 63,
       "wins": 0,
-      "loses": 5
+      "loses": 5,
+      "isFavorite": false
     },
     {
       "id": "6be9",
@@ -153,11 +123,13 @@
       "name": "Zosia",
       "weight": 200,
       "height": 150,
+      "ability": "overgrow",
       "baseExperience": 1500,
       "imageId": 157,
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/157.png",
       "wins": 2,
-      "loses": 1
+      "loses": 1,
+      "isFavorite": false
     },
     {
       "id": "74dd",
@@ -165,11 +137,13 @@
       "name": "przemek",
       "weight": "1000",
       "height": 20,
+      "ability": "overgrow",
       "baseExperience": 1000,
       "imageId": 160,
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/160.png",
       "wins": 0,
-      "loses": 0
+      "loses": 0,
+      "isFavorite": false
     },
     {
       "id": "18d5",
@@ -179,7 +153,10 @@
       "height": 17,
       "baseExperience": 320,
       "wins": 8,
-      "loses": 0
+      "loses": 1,
+      "isFavorite": false,
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png",
+      "ability": "blaze"
     },
     {
       "id": "3923",
@@ -187,9 +164,11 @@
       "name": "wartortle",
       "weight": 225,
       "height": 10,
+      "ability": "torrent",
       "baseExperience": 172,
       "wins": 3,
-      "loses": 5
+      "loses": 5,
+      "isFavorite": false
     },
     {
       "id": "9129",
@@ -199,7 +178,10 @@
       "height": 6,
       "baseExperience": 62,
       "wins": 0,
-      "loses": 7
+      "loses": 7,
+      "isFavorite": true,
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
+      "ability": "blaze"
     },
     {
       "id": "cf93",
@@ -209,7 +191,10 @@
       "height": 11,
       "baseExperience": 152,
       "wins": 1,
-      "loses": 4
+      "loses": 4,
+      "isFavorite": true,
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png",
+      "ability": "blaze"
     },
     {
       "id": "2ad3",
@@ -219,7 +204,10 @@
       "height": 3,
       "baseExperience": 39,
       "wins": 0,
-      "loses": 2
+      "loses": 2,
+      "isFavorite": true,
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10.png",
+      "ability": "shield-dust"
     },
     {
       "id": "0a2d",
@@ -227,9 +215,11 @@
       "name": "growlithe",
       "weight": 190,
       "height": 7,
+      "ability": "intimidate",
       "baseExperience": 70,
       "wins": 0,
-      "loses": 2
+      "loses": 2,
+      "isFavorite": false
     },
     {
       "id": "e888",
@@ -237,9 +227,11 @@
       "name": "butterfree",
       "weight": 320,
       "height": 11,
+      "ability": "compound-eyes",
       "baseExperience": 198,
       "wins": 2,
-      "loses": 1
+      "loses": 1,
+      "isFavorite": false
     },
     {
       "id": "479e",
@@ -247,9 +239,11 @@
       "name": "bellsprout",
       "weight": 40,
       "height": 7,
+      "ability": "chlorophyll",
       "baseExperience": 60,
       "wins": 0,
-      "loses": 3
+      "loses": 3,
+      "isFavorite": false
     },
     {
       "id": "bbbd",
@@ -257,9 +251,11 @@
       "name": "metapod",
       "weight": 99,
       "height": 7,
+      "ability": "shed-skin",
       "baseExperience": 122,
       "wins": 5,
-      "loses": 3
+      "loses": 3,
+      "isFavorite": false
     },
     {
       "id": "ff34",
@@ -267,9 +263,11 @@
       "name": "weedle",
       "weight": 32,
       "height": 3,
+      "ability": "shield-dust",
       "baseExperience": 39,
       "wins": 0,
-      "loses": 3
+      "loses": 3,
+      "isFavorite": false
     },
     {
       "id": "665d",
@@ -277,9 +275,11 @@
       "name": "cubone",
       "weight": 65,
       "height": 4,
+      "ability": "rock-head",
       "baseExperience": 64,
       "wins": 0,
-      "loses": 2
+      "loses": 2,
+      "isFavorite": false
     },
     {
       "id": "1f03",
@@ -287,9 +287,11 @@
       "name": "doduo",
       "weight": 392,
       "height": 14,
+      "ability": "run-away",
       "baseExperience": 62,
       "wins": 0,
-      "loses": 1
+      "loses": 1,
+      "isFavorite": false
     },
     {
       "id": "5067",
@@ -297,11 +299,13 @@
       "name": "Antek W",
       "weight": 100,
       "height": 150,
+      "ability": "overgrow",
       "baseExperience": 1530,
       "imageId": 169,
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/169.png",
       "wins": 3,
-      "loses": 2
+      "loses": 2,
+      "isFavorite": false
     },
     {
       "id": "c008",
@@ -309,9 +313,11 @@
       "name": "raichu",
       "weight": 300,
       "height": 8,
+      "ability": "static",
       "baseExperience": 218,
       "wins": 0,
-      "loses": 3
+      "loses": 3,
+      "isFavorite": false
     },
     {
       "id": "4d90",
@@ -319,9 +325,52 @@
       "name": "machamp",
       "weight": 1300,
       "height": 16,
+      "ability": "guts",
       "baseExperience": 227,
       "wins": 0,
-      "loses": 1
+      "loses": 1,
+      "isFavorite": false
+    },
+    {
+      "id": "5503",
+      "pokemonId": 45,
+      "name": "vileplume",
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/45.png",
+      "height": 12,
+      "weight": 186,
+      "ability": "chlorophyll",
+      "baseExperience": 221,
+      "wins": 0,
+      "loses": 0,
+      "isFavorite": true
+    },
+    {
+      "id": "32a7",
+      "pokemonId": 1777455798391,
+      "name": "aatest1",
+      "weight": 10,
+      "height": 10,
+      "ability": "overgrow",
+      "baseExperience": 10,
+      "imageId": 151,
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/151.png",
+      "wins": 0,
+      "loses": 0,
+      "isFavorite": true
+    },
+    {
+      "id": "50ff",
+      "pokemonId": 1777455843024,
+      "name": "aatest2",
+      "weight": 10,
+      "height": 10,
+      "ability": "overgrow",
+      "baseExperience": 10,
+      "imageId": 153,
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/153.png",
+      "wins": 0,
+      "loses": 0,
+      "isFavorite": true
     }
   ]
 }

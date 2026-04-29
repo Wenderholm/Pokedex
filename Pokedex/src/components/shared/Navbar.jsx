@@ -13,8 +13,9 @@ import {
   PokemonLogo,
   StyledLinkWrapper,
   UserWrapper,
+  ThemeModeLabel,
 } from "./Navbar.styled";
-import pokemonLogoImg from "../../assets/pokemonLogo.png";
+import pokemonLogoImg from "../../icons/pokemonLogo.png";
 
 const Navbar = () => {
   const { user } = useAuth();
@@ -31,6 +32,9 @@ const Navbar = () => {
           <>
             <UserWrapper>
               👤 {user.name}
+              <ThemeModeLabel>
+                {theme === "dark" ? "DarkMode" : "LightMode"}
+              </ThemeModeLabel>
               <Switch checked={theme === "dark"} onChange={toggleTheme} />
             </UserWrapper>
             <StyledLinkWrapper>
@@ -42,10 +46,18 @@ const Navbar = () => {
             </StyledLinkWrapper>
           </>
         ) : (
-          <StyledLinkWrapper>
-            <StyledLink to="/login">Logowanie</StyledLink>
-            <StyledLink to="/register">Rejestracja</StyledLink>
-          </StyledLinkWrapper>
+          <>
+            <UserWrapper>
+              <ThemeModeLabel>
+                {theme === "dark" ? "DarkMode" : "LightMode"}
+              </ThemeModeLabel>
+              <Switch checked={theme === "dark"} onChange={toggleTheme} />
+            </UserWrapper>
+            <StyledLinkWrapper>
+              <StyledLink to="/login">Logowanie</StyledLink>
+              <StyledLink to="/register">Rejestracja</StyledLink>
+            </StyledLinkWrapper>
+          </>
         )}
       </LinksContainer>
     </NavStyle>

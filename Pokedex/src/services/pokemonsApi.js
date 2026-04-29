@@ -23,3 +23,21 @@ export const updatePokemon = (id, data) => {
 export const getBattlePokemonById = (id) => {
   return api.get(`/pokemons/${id}`);
 };
+
+export const upsertPokemonByPokemonId = async (pokemonId, patch) => {
+  const response = await findPokemonByPokeApiId(pokemonId);
+  const existing = response.data[0];
+
+  if (existing) {
+    await updatePokemon(existing.id, {
+      ...existing,
+      ...patch,
+    });
+    return;
+  }
+
+  await createPokemon({
+    pokemonId,
+    ...patch,
+  });
+};

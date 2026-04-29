@@ -20,7 +20,7 @@ export const Label = styled.label`
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
-  color: #333;
+  color: ${({ theme }) => theme.text};
   font-size: 14px;
 `;
 
@@ -28,18 +28,24 @@ export const Input = styled.input`
   width: 100%;
   padding: 10px;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid
+    ${({ theme }) => (theme.background === "#121212" ? "#4b5563" : "#ccc")};
+  background-color: ${({ theme }) =>
+    theme.background === "#121212" ? "#1f252a" : "#fff"};
+  color: ${({ theme }) => theme.text};
   font-size: 16px;
   transition: border-color 0.2s ease;
 
   &:focus {
     outline: none;
-    border-color: #667eea;
+    border-color: ${({ theme }) =>
+      theme.background === "#121212" ? "#8ea2ff" : "#667eea"};
     box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1);
   }
 
   &::placeholder {
-    color: #999;
+    color: ${({ theme }) =>
+      theme.background === "#121212" ? "#9ca3af" : "#999"};
   }
 `;
 

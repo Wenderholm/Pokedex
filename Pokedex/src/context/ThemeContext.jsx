@@ -4,10 +4,17 @@ import { lightTheme, darkTheme } from "../themes/themes";
 import { ThemeContext } from "./theme-context";
 
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(() => {
+    const storedTheme = localStorage.getItem("theme");
+    return storedTheme === "dark" ? "dark" : "light";
+  });
 
   const toggleTheme = () =>
-    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+    setTheme((prev) => {
+      const nextTheme = prev === "light" ? "dark" : "light";
+      localStorage.setItem("theme", nextTheme);
+      return nextTheme;
+    });
 
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>

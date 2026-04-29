@@ -8,7 +8,10 @@ export const PokemonDetailsContainer = styled.div`
 `;
 
 export const PokemonCardWrapper = styled.div`
-  background: linear-gradient(to left top, #cdd7dd, #fbfbfb, #cdd7dd);
+  background: ${({ theme }) =>
+    theme.background === "#121212"
+      ? "linear-gradient(to left top, #202427, #2a2f34, #202427)"
+      : "linear-gradient(to left top, #cdd7dd, #fbfbfb, #cdd7dd)"};
   border-radius: 20px;
   display: flex;
   align-items: center;
@@ -94,7 +97,7 @@ export const ExpSection = styled.div`
 `;
 
 export const ExpSectionPokemonName = styled.h2`
-  color: black;
+  color: ${({ theme }) => theme.text};
   margin: 0;
   text-align: center;
   font-size: 22px;
@@ -141,7 +144,7 @@ export const Stat = styled.div`
 
 export const StatValue = styled.span`
   font-size: 12px;
-  color: #666;
+  color: ${({ theme }) => (theme.background === "#121212" ? "#aaa" : "#666")};
   margin-bottom: 5px;
 
   @media (max-width: 420px) {
@@ -150,7 +153,7 @@ export const StatValue = styled.span`
 `;
 
 export const StatLabel = styled.span`
-  color: #000;
+  color: ${({ theme }) => theme.text};
   font-size: 16px;
   font-weight: 700;
   text-transform: none;
@@ -180,8 +183,14 @@ export const HeartButton = styled.button`
   border: 2px solid ${(props) => (props.$active ? "#e53935" : "#aaa")};
   cursor: pointer;
   transition: all 0.2s ease;
-  background: white;
-  color: ${(props) => (props.$active ? "#e53935" : "#555")};
+  background: ${({ theme }) =>
+    theme.background === "#121212" ? "#2a2f34" : "white"};
+  color: ${(props) =>
+    props.$active
+      ? "#e53935"
+      : props.theme?.background === "#121212"
+        ? "#ccc"
+        : "#555"};
 
   img {
     width: 22px;
@@ -201,8 +210,14 @@ export const SwordButton = styled.button`
   border: 2px solid ${(props) => (props.$active ? "#1565c0" : "#aaa")};
   cursor: pointer;
   transition: all 0.2s ease;
-  background: white;
-  color: ${(props) => (props.$active ? "#1565c0" : "#555")};
+  background: ${({ theme }) =>
+    theme.background === "#121212" ? "#2a2f34" : "white"};
+  color: ${(props) =>
+    props.$active
+      ? "#1565c0"
+      : props.theme?.background === "#121212"
+        ? "#ccc"
+        : "#555"};
 
   img {
     width: 22px;

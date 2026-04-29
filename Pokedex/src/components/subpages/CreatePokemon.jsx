@@ -38,6 +38,7 @@ const CreatePokemon = () => {
     weight: "",
     height: "",
     baseExperience: "",
+    ability: "",
   });
   const isImageUsed = usedImageIds.includes(imageId);
 
@@ -73,10 +74,12 @@ const CreatePokemon = () => {
       weight: Number(form.weight),
       height: Number(form.height),
       baseExperience: Number(form.baseExperience),
+      ability: form.ability,
       imageId,
       image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${imageId}.png`,
       wins: 0,
       loses: 0,
+      isFavorite: false,
     });
 
     await refreshPokemons();
@@ -141,6 +144,17 @@ const CreatePokemon = () => {
             value={form.baseExperience}
             onChange={handleChange}
             required
+          />
+        </FormGroup>
+
+        <FormGroup>
+          <Label htmlFor="ability">Zdolność (ability)</Label>
+          <Input
+            id="ability"
+            name="ability"
+            placeholder="np. overgrow, blaze, torrent"
+            value={form.ability}
+            onChange={handleChange}
           />
         </FormGroup>
 
