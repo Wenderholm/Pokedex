@@ -1,8 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
-import {
-  upsertPokemonByPokemonId,
-} from "../../services/pokemonsApi";
+import { upsertPokemonByPokemonId } from "../../services/pokemonsApi";
 import { useSnackbar } from "notistack";
 import { usePokemons } from "../../context/pokemons-context";
 import {
@@ -27,40 +25,59 @@ const EditPokemon = () => {
   });
   const loadedIdRef = useRef(null);
 
+  // useEffect(() => {
+  //   if (loadedIdRef.current === id) {
+  //     return;
+  //   }
+
+  //   loadedIdRef.current = id;
+
+  //   const fetchPokemon = async () => {
+  //     try {
+  //       const selectedPokemon = getPokemonById(id);
+  //       if (!selectedPokemon) {
+  //         enqueueSnackbar("Nie znaleziono pokemona do edycji", {
+  //           variant: "error",
+  //         });
+  //         navigate("/edit");
+  //         return;
+  //       }
+
+  //       setPokemon(selectedPokemon);
+  //       setFormData({
+  //         weight: String(selectedPokemon.weight ?? ""),
+  //         height: String(selectedPokemon.height ?? ""),
+  //         baseExperience: String(selectedPokemon.baseExperience ?? ""),
+  //       });
+  //     } catch (error) {
+  //       console.error("Blad pobierania pokemona:", error);
+  //       enqueueSnackbar("Nie udalo sie pobrac pokemona do edycji", {
+  //         variant: "error",
+  //       });
+  //       navigate("/edit");
+  //     }
+  //   };
+
+  //   fetchPokemon();
+  // }, [enqueueSnackbar, getPokemonById, id, navigate]);
+
   useEffect(() => {
-    if (loadedIdRef.current === id) {
+    const selectedPokemon = getPokemonById(id);
+
+    if (!selectedPokemon) {
+      enqueueSnackbar("Nie znaleziono pokemona do edycji", {
+        variant: "error",
+      });
+      navigate("/edit");
       return;
     }
 
-    loadedIdRef.current = id;
-
-    const fetchPokemon = async () => {
-      try {
-        const selectedPokemon = getPokemonById(id);
-        if (!selectedPokemon) {
-          enqueueSnackbar("Nie znaleziono pokemona do edycji", {
-            variant: "error",
-          });
-          navigate("/edit");
-          return;
-        }
-
-        setPokemon(selectedPokemon);
-        setFormData({
-          weight: String(selectedPokemon.weight ?? ""),
-          height: String(selectedPokemon.height ?? ""),
-          baseExperience: String(selectedPokemon.baseExperience ?? ""),
-        });
-      } catch (error) {
-        console.error("Blad pobierania pokemona:", error);
-        enqueueSnackbar("Nie udalo sie pobrac pokemona do edycji", {
-          variant: "error",
-        });
-        navigate("/edit");
-      }
-    };
-
-    fetchPokemon();
+    setPokemon(selectedPokemon);
+    setFormData({
+      weight: String(selectedPokemon.weight ?? ""),
+      height: String(selectedPokemon.height ?? ""),
+      baseExperience: String(selectedPokemon.baseExperience ?? ""),
+    });
   }, [enqueueSnackbar, getPokemonById, id, navigate]);
 
   const onChangeField = (e) => {
@@ -86,17 +103,6 @@ const EditPokemon = () => {
       height: Number(formData.height),
       baseExperience: Number(formData.baseExperience),
     };
-
-    if (
-      Number.isNaN(updatedData.weight) ||
-      Number.isNaN(updatedData.height) ||
-      Number.isNaN(updatedData.baseExperience)
-    ) {
-      enqueueSnackbar("Podaj poprawne wartosci liczbowe", {
-        variant: "error",
-      });
-      return;
-    }
 
     try {
       await upsertPokemonByPokemonId(pokemonId, {

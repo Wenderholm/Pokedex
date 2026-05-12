@@ -52,12 +52,13 @@ const Edit = () => {
             <PokemonNumber>#{startIndex + index + 1}</PokemonNumber>
 
             <PokemonImage
-              src={
-                pokemon.image ||
-                `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
-                  pokemon.imageId || pokemon.pokemonId
-                }.png`
-              }
+              // src={
+              //   pokemon.image ||
+              //   `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
+              //     pokemon.imageId || pokemon.pokemonId
+              //   }.png`
+              // }
+              src={pokemon.image}
               alt={pokemon.name}
             />
 

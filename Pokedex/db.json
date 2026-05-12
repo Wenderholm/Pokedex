@@ -99,8 +99,8 @@
       "weight": 1000,
       "ability": "overgrow",
       "height": 20,
-      "baseExperience": 366,
-      "wins": 13,
+      "baseExperience": 376,
+      "wins": 14,
       "loses": 0,
       "isFavorite": true,
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png"
@@ -176,8 +176,8 @@
       "name": "charmander",
       "weight": 85,
       "height": 6,
-      "baseExperience": 62,
-      "wins": 0,
+      "baseExperience": 72,
+      "wins": 1,
       "loses": 7,
       "isFavorite": true,
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
@@ -191,7 +191,7 @@
       "height": 11,
       "baseExperience": 152,
       "wins": 1,
-      "loses": 4,
+      "loses": 5,
       "isFavorite": true,
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png",
       "ability": "blaze"
@@ -204,7 +204,7 @@
       "height": 3,
       "baseExperience": 39,
       "wins": 0,
-      "loses": 2,
+      "loses": 3,
       "isFavorite": true,
       "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10.png",
       "ability": "shield-dust"
@@ -254,8 +254,9 @@
       "ability": "shed-skin",
       "baseExperience": 122,
       "wins": 5,
-      "loses": 3,
-      "isFavorite": false
+      "loses": 4,
+      "isFavorite": false,
+      "image": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/11.png"
     },
     {
       "id": "ff34",
@@ -339,8 +340,8 @@
       "height": 12,
       "weight": 186,
       "ability": "chlorophyll",
-      "baseExperience": 221,
-      "wins": 0,
+      "baseExperience": 231,
+      "wins": 1,
       "loses": 0,
       "isFavorite": true
     },

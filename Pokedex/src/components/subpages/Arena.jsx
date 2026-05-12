@@ -5,6 +5,7 @@ import PokemonCard from "../shared/PokemonCard";
 import { useState } from "react";
 import { useSnackbar } from "notistack";
 import { useNavigate } from "react-router-dom";
+import pokemonLogo from "../../icons/pokemonLogo.png";
 import {
   ArenaContainer,
   ArenaFightArea,
@@ -16,6 +17,7 @@ import {
   ButtonsContainer,
   NewBattleButton,
   ExitArenaButton,
+  PlaceholderContainer,
 } from "./Arena.styled";
 import { BattleResultModal } from "./BattleResultModal";
 
@@ -60,7 +62,7 @@ const Arena = () => {
 
     setTimeout(() => {
       setShowModal(true);
-    }, 1000);
+    }, 500);
   };
 
   const saveBattleResult = async (pokemon, isWinner) => {
@@ -97,42 +99,50 @@ const Arena = () => {
         )}
       </h2>
       <ArenaFightArea>
-        {arena[0] && (
+        {arena[0] ? (
           <PokemonContainer
             $battleResult={battleResult}
             $pokemonId={arena[0].id}
           >
             <PokemonTitle>Pierwszy Pokemon</PokemonTitle>
             <PokemonCard pokemon={arena[0]} battleResult={battleResult} />
-            <RemoveButton onClick={() => removeFromArena(arena[0]?.id)}>
+            <RemoveButton onClick={() => removeFromArena(arena[0].id)}>
               X
             </RemoveButton>
           </PokemonContainer>
+        ) : (
+          <PlaceholderContainer>
+            <img src={pokemonLogo} alt="placeholder" />
+            <p>Dodaj pierwszego Pokémona</p>
+          </PlaceholderContainer>
         )}
 
-        {arena.length === 2 && (
-          <FightButtonContainer>
-            <FightButton
-              disabled={arena.length !== 2 || battleResult !== null}
-              onClick={fight}
-              $battleResult={battleResult}
-            >
-              ⚔️ WALCZ! ⚔️
-            </FightButton>
-          </FightButtonContainer>
-        )}
+        <FightButtonContainer>
+          <FightButton
+            disabled={arena.length !== 2 || battleResult !== null}
+            onClick={fight}
+            $battleResult={battleResult}
+          >
+            ⚔️ WALCZ! ⚔️
+          </FightButton>
+        </FightButtonContainer>
 
-        {arena[1] && (
+        {arena[1] ? (
           <PokemonContainer
             $battleResult={battleResult}
             $pokemonId={arena[1].id}
           >
             <PokemonTitle>Drugi Pokemon</PokemonTitle>
             <PokemonCard pokemon={arena[1]} battleResult={battleResult} />{" "}
-            <RemoveButton onClick={() => removeFromArena(arena[1]?.id)}>
+            <RemoveButton onClick={() => removeFromArena(arena[1].id)}>
               X
             </RemoveButton>
           </PokemonContainer>
+        ) : (
+          <PlaceholderContainer>
+            <img src={pokemonLogo} alt="placeholder" />
+            <p>Dodaj drugiego Pokémona</p>
+          </PlaceholderContainer>
         )}
       </ArenaFightArea>
       <ButtonsContainer>

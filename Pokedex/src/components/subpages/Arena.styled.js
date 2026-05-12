@@ -93,3 +93,29 @@ export const ExitArenaButton = styled.button`
     width: min(320px, 100%);
   }
 `;
+
+export const PlaceholderContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 30px;
+  border: 2px dashed #aaa;
+  border-radius: 12px;
+  opacity: 0.5;
+  min-width: 200px;
+  min-height: 300px;
+
+  img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+  }
+
+  p {
+    font-size: 14px;
+    color: #888;
+    text-align: center;
+  }
+`;

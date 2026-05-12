@@ -61,7 +61,6 @@ export const usePokemonsData = () => {
           wins: bp.wins || 0,
           loses: bp.loses || 0,
           isFavorite: bp.isFavorite || false,
-          isCustom: true,
         }));
 
       setPokemons([...mergedApiPokemons, ...customPokemons]);

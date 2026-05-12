@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { useSnackbar } from "notistack";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../../context/auth-context";
+import { z } from "zod";
 import {
   FormContainer,
   FormTitle,
@@ -9,15 +10,30 @@ import {
   FormField,
   StyledInput,
   SubmitButton,
+  ErrorMessage,
   FormLink,
 } from "../forms/Form.styled";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+const schema = z.object({
+  email: z.string().email({ message: "Podaj prawidłowy email" }),
+  password: z
+    .string()
+    .min(8, { message: "Hasło musi mieć co najmniej 8 znaków" }),
+});
 
 const Login = () => {
   const { login } = useAuth();
   const { enqueueSnackbar } = useSnackbar();
   const navigate = useNavigate();
 
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(schema),
+  });
 
   const onSubmit = async (data) => {
     try {
@@ -50,6 +66,7 @@ const Login = () => {
             placeholder="Email"
             {...register("email", { required: true })}
           />
+          {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
         </FormField>
 
         <FormField>
@@ -58,6 +75,9 @@ const Login = () => {
             placeholder="Hasło"
             {...register("password", { required: true })}
           />
+          {errors.password && (
+            <ErrorMessage>{errors.password.message}</ErrorMessage>
+          )}
         </FormField>
 
         <SubmitButton type="submit">Zaloguj się</SubmitButton>

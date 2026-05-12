@@ -104,8 +104,6 @@ npm run lint       # Sprawdzanie kodu ESLintem
 
 ## 🏗️ Architektura projektu
 
-Dane przepływają jednokierunkowo: **API → hook → context → komponenty**
-
 ```
 src/
 ├── components/          # Komponenty React
@@ -143,14 +141,7 @@ src/
 
 ### Baza danych (`db.json`)
 
-JSON Server zawiera **2 tabele**:
-
-| Tabela     | Opis                                                            |
-| ---------- | --------------------------------------------------------------- |
-| `users`    | Konta użytkowników                                              |
-| `pokemons` | Rekordy Pokémonów z polami `pokemonId`, `isFavorite`, `ability` |
-
-Ulubione nie są osobną tabelą — każdy rekord Pokémona posiada flagę `isFavorite: true/false`.
+JSON Server
 
 ## 🔧 Technologie i biblioteki
 
