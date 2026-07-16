@@ -1,0 +1,121 @@
+import styled from "styled-components";
+
+export const ArenaContainer = styled.div``;
+
+export const ArenaFightArea = styled.div`
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+
+  @media (max-width: 1100px) {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+`;
+
+export const PokemonContainer = styled.div`
+  position: relative;
+
+  @media (max-width: 1100px) {
+    width: min(420px, 100%);
+  }
+`;
+
+export const PokemonTitle = styled.h3``;
+
+export const RemoveButton = styled.button`
+  position: absolute;
+  top: 70px;
+  right: 10px;
+  background-color: #2196f3;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  color: white;
+`;
+
+export const FightButtonContainer = styled.div`
+  align-self: center;
+`;
+
+export const FightButton = styled.button`
+  padding: 15px 30px;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: ${(props) =>
+    props.$battleResult !== null ? "#ccc" : "#ff4444"};
+  color: ${(props) => (props.$battleResult !== null ? "#888" : "white")};
+  border: none;
+  border-radius: 10px;
+  cursor: ${(props) =>
+    props.$battleResult !== null ? "not-allowed" : "pointer"};
+  opacity: ${(props) => (props.$battleResult !== null ? 0.6 : 1)};
+  transition: all 0.3s ease;
+`;
+
+export const ButtonsContainer = styled.div`
+  margin-top: 30px;
+
+  @media (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+`;
+
+export const NewBattleButton = styled.button`
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+
+  @media (max-width: 600px) {
+    margin-right: 0;
+    width: min(320px, 100%);
+  }
+`;
+
+export const ExitArenaButton = styled.button`
+  padding: 10px 20px;
+  background-color: #666;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+  @media (max-width: 600px) {
+    width: min(320px, 100%);
+  }
+`;
+
+export const PlaceholderContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 30px;
+  border: 2px dashed #aaa;
+  border-radius: 12px;
+  opacity: 0.5;
+  min-width: 200px;
+  min-height: 300px;
+
+  img {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+  }
+
+  p {
+    font-size: 14px;
+    color: #888;
+    text-align: center;
+  }
+`;

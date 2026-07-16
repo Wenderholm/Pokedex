@@ -5,13 +5,25 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev:api": "json-server --watch db.json --port 3001",
+    "dev:all": "npm run dev:api & npm run dev",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@hookform/resolvers": "^5.2.2",
+    "@mui/material": "^9.0.0",
+    "axios": "^1.13.2",
+    "notistack": "^3.0.2",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "react-hook-form": "^7.69.0",
+    "react-router-dom": "^7.11.0",
+    "styled-components": "^6.1.19",
+    "zod": "^4.2.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
@@ -23,6 +35,7 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.4.24",
     "globals": "^16.5.0",
+    "json-server": "^1.0.0-beta.3",
     "vite": "^7.2.4"
   }
 }
